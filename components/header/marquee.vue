@@ -3,8 +3,18 @@
     <span class="fs-4">رسالة رئيس مجلس الإداره اليوميه:</span>
     <marquee :behavior="behavior">
       <div class="marquee-content">
-        <span>One</span>
-        <span>Two</span>
+        <span
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+          magni. Dicta placeat exercitationem cum nisi doloribus eaque pariatur
+          sunt inventore eum, nostrum harum molestias, ipsa ullam modi
+          voluptatem veritatis natus.</span
+        >
+        <span
+          >Two Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+          fugiat voluptatum eligendi incidunt ea fuga voluptatem tenetur officia
+          eveniet? Suscipit ipsam est laudantium a ex debitis animi odit
+          exercitationem? Aspernatur!</span
+        >
       </div>
     </marquee>
     <div class="buttons">
