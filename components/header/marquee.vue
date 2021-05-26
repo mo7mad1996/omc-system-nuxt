@@ -1,14 +1,12 @@
 <template>
   <div class="marquee" @mouseenter="stop" @mouseleave="play">
     <span class="fs-4">رسالة رئيس مجلس الإداره اليوميه:</span>
-    <marquee :behavior="behavior">
+    <marquee ref="marquee" direction="right">
       <div class="marquee-content">
-        <span
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-          magni. Dicta placeat exercitationem cum nisi doloribus eaque pariatur
-          sunt inventore eum, nostrum harum molestias, ipsa ullam modi
-          voluptatem veritatis natus.</span
-        >
+        <span>
+          على جميع العاملين بمجموعه عمال مصر دوام التواصل المستمر بين طاقم
+          الإداره ومصنع OMC للصناعات المتخصصه
+        </span>
         <span
           >Two Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
           fugiat voluptatum eligendi incidunt ea fuga voluptatem tenetur officia
@@ -34,16 +32,14 @@
 export default {
   name: 'MarqueeComponent',
   data() {
-    return {
-      behavior: 'scroll',
-    }
+    return {}
   },
   methods: {
     stop() {
-      this.behavior = 'slide'
+      this.$refs.marquee.stop()
     },
     play() {
-      this.behavior = 'scroll'
+      this.$refs.marquee.start()
     },
   },
 }
