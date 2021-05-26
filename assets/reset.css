@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: Mohammad;
+  box-sizing: border-box;
+}
+
+[lang='ar'] {
+  direction: rtl;
+}
+
+@font-face {
+  font-family: Mohammad;
+  src: url(~assets/Mohammad-Head.ttf);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
