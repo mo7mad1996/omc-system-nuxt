@@ -1,12 +1,6 @@
 <template>
   <div class="header">
-    <header>
-      <img class="user-img" src="/header/users/1.jpg" alt="User name" />
-
-      <button class="header-button">
-        <img src="/header/button.png" alt="icon" />
-      </button>
-    </header>
+    <header></header>
 
     <MarqueeComponent />
   </div>
@@ -32,22 +26,5 @@ header {
   background-image: url('/header/BG.png');
   background-size: cover;
   height: 166px;
-}
-
-.user-img {
-  position: absolute;
-  height: 150px;
-  right: 30vw;
-  top: 16px;
-}
-
-.header-button {
-  height: 90px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-.header-button img {
-  height: 100%;
 }
 </style>

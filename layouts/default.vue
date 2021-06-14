@@ -15,6 +15,7 @@
 <style scoped>
 .BG {
   background-image: url('/baseBG.png');
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   flex: 1;
@@ -39,7 +40,7 @@ export default {
     Chat,
   },
   created() {
-    console.log('this system build by Mohammed Ibrahem')
+    console.log('This system build by Mohammed Ibrahem')
   },
 }
 </script>
