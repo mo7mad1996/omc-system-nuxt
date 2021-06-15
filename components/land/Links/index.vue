@@ -2,7 +2,7 @@
   <div class="col">
     <div class="row links">
       <div class="col-3">
-        <nuxt-link to="/" class="لاعففخ">
+        <nuxt-link to="/polarization" class="لاعففخ">
           قسم الاستقطاب
           <ul class="nested-menu">
             <li><nuxt-link to="/">استقطاب عمال بدون مؤهل</nuxt-link></li>
@@ -116,20 +116,151 @@
         </nuxt-link>
       </div>
       <div class="col-3">
-        <nuxt-link to="/">قطاع الاتصال والدورة المستنديه</nuxt-link>
-        <nuxt-link to="/">قطاع التكنلوجيا الرقميه والبرمجه</nuxt-link>
+        <nuxt-link to="/">
+          قطاع الاتصال والدورة المستنديه
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">بيان صرف دورة مستندية</nuxt-link></li>
+            <li><nuxt-link to="/">بيان استلام دورة مستندية</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب دورة مستندية</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب جهاز كمبيوتر</nuxt-link></li>
+            <li><nuxt-link to="/">بيان صرف جهاز كمبيوتر</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب تليفون</nuxt-link></li>
+            <li><nuxt-link to="/">بيان صرف تليفون</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب خط تليفون</nuxt-link></li>
+            <li><nuxt-link to="/">بيان صرف خط تليفون</nuxt-link></li>
+            <li><nuxt-link to="/">بيان رصيد</nuxt-link></li>
+            <li><nuxt-link to="/">بيان تقديم شكوى عطل جهاز</nuxt-link></li>
+            <li><nuxt-link to="/">بيان تقديم شكوى انقطاع انترنت</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قطاع التكنلوجيا الرقميه والبرمجه
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">طلبات عملاء قاعدة بيانات</nuxt-link></li>
+            <li><nuxt-link to="/">طلبات عملاء ويب سايت</nuxt-link></li>
+            <li><nuxt-link to="/">تسجيل بيانات عملاء</nuxt-link></li>
+            <li><nuxt-link to="/">الدعم الفني</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم مقترح او شكوى</nuxt-link></li>
+            <li><nuxt-link to="/">زيارات ميدانيه</nuxt-link></li>
+          </ul>
+        </nuxt-link>
         <h1>ERP<br />SYSTEAM<br />OMALMASR</h1>
       </div>
       <div class="col-3">
-        <nuxt-link to="/">القطاع القانوني</nuxt-link>
-        <nuxt-link to="/">قطاع النقل</nuxt-link>
-        <nuxt-link to="/">قطاع السكن</nuxt-link>
-        <nuxt-link to="/">قطاع الانشاءات</nuxt-link>
-        <nuxt-link to="/">قطاع الاستثمار</nuxt-link>
+        <nuxt-link to="/"
+          >القطاع القانوني
+
+          <ul class="nested-menu">
+            <li>
+              <nuxt-link to="/">قسم التأمينات الاجتماعيه والطبيه</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/">قسم التراخيص والاجراءات الحكوميه</nuxt-link>
+            </li>
+            <li><nuxt-link to="/">قسم التفتيش</nuxt-link></li>
+            <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قطاع النقل
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">قسم تسجيل حركه النقل</nuxt-link></li>
+            <li><nuxt-link to="/">طلب سيارة لمأموريه</nuxt-link></li>
+            <li><nuxt-link to="/">طلب شراء سياره</nuxt-link></li>
+            <li><nuxt-link to="/">طلب بيع سياره</nuxt-link></li>
+            <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قطاع السكن
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">بيان تسجيل الوحدات السكنيه</nuxt-link></li>
+            <li><nuxt-link to="/">بيان محتويات وحدة سكيه</nuxt-link></li>
+            <li><nuxt-link to="/">تسجيل افراد وحده سكنيه</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب ايجار وحدة سكنيه</nuxt-link></li>
+            <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قطاع الانشاءات
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">قسم تسجيل ييانات العملاء</nuxt-link></li>
+            <li><nuxt-link to="/">قسم طلب الرسومات الهندسيه</nuxt-link></li>
+            <li><nuxt-link to="/">قسم تسليم الانشاءات الهندسيه</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب ايجار وحدة سكنيه</nuxt-link></li>
+            <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قطاع الاستثمار
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">قسم فرص الاستثمار الصناعي</nuxt-link></li>
+            <li><nuxt-link to="/">قسم دراسات الجدوى الاقتصايه</nuxt-link></li>
+            <li><nuxt-link to="/">قسم التمويل والشراكه</nuxt-link></li>
+            <li><nuxt-link to="/">قسم الاراضي والمخازن الصناعيه</nuxt-link></li>
+            <li><nuxt-link to="/">قسم الاستيراد والتصدير</nuxt-link></li>
+            <li>
+              <nuxt-link to="/">قسم توريد خطوط الانتاج والخامات</nuxt-link>
+            </li>
+            <li><nuxt-link to="/">قسم توريد مستلزمات الانتاج</nuxt-link></li>
+            <li>
+              <nuxt-link to="/">قسم الهيكل الاداري والموارد البشريه</nuxt-link>
+            </li>
+            <li><nuxt-link to="/">قسم الانتاج والتشغيل</nuxt-link></li>
+            <li><nuxt-link to="/">قسم الانظمه الماليه</nuxt-link></li>
+            <li><nuxt-link to="/">قسم التسويقيه وانظمه البيع</nuxt-link></li>
+            <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >قسم خدمات الموظفين
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/">تقديم طلب اجازه</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب سلفه</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب زياده مرتب</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب نقل</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب إخلاء طرف</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب استقاله</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم مذكره</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم شكوى</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب تحقيق</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب منحه</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب اعتذار</nuxt-link></li>
+            <li><nuxt-link to="/">تقديم طلب خدمه عامه</nuxt-link></li>
+          </ul>
+        </nuxt-link>
       </div>
       <div class="col-3">
-        <nuxt-link to="/">القطاع التصنيعي</nuxt-link>
-        <nuxt-link to="/">القطاع الإعلامي</nuxt-link>
+        <nuxt-link to="/">
+          القطاع التصنيعي
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/"> بيان طلب تصنيع منتجات</nuxt-link></li>
+            <li><nuxt-link to="/">بيان تسليم منتجات</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب خامات</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب مستلزمات انتاج</nuxt-link></li>
+            <li><nuxt-link to="/">بيان حالة منتج</nuxt-link></li>
+            <li><nuxt-link to="/">بيان طلب مشتريات</nuxt-link></li>
+            <li><nuxt-link to="/">بيان تسليم مشتريات</nuxt-link></li>
+            <li><nuxt-link to="/">تصريح خروج منتجات</nuxt-link></li>
+          </ul>
+        </nuxt-link>
+        <nuxt-link to="/"
+          >القطاع الإعلامي
+
+          <ul class="nested-menu">
+            <li><nuxt-link to="/"> تسجيل مصادر صحفيه</nuxt-link></li>
+            <li><nuxt-link to="/"> تقرير عمل يومي</nuxt-link></li>
+            <li><nuxt-link to="/"> تقرير خبر للنشر</nuxt-link></li>
+            <li><nuxt-link to="/"> طلب اعلان</nuxt-link></li>
+          </ul>
+        </nuxt-link>
         <nuxt-link to="/">تقارير عامة</nuxt-link>
       </div>
     </div>

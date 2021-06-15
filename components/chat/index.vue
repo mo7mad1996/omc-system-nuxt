@@ -4,7 +4,7 @@
       <h4 class="text-center">أهلاً بك في عمال مصر</h4>
     </div>
     <button class="btn" @click="toggle">
-      <img src="/links/chat.png" alt="Chat" />
+      <img src="/chat.png" alt="Chat" />
     </button>
   </div>
 </template>
@@ -25,33 +25,36 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .chat-section {
   position: fixed;
   right: 15px;
   bottom: 10vh;
   z-index: 3;
-}
 
-.chat-section button {
-  width: 100px;
-  z-index: 2;
-  position: relative;
-}
-button img {
-  width: 100%;
-}
+  button {
+    width: 100px;
+    z-index: 2;
+    position: relative;
 
-.chat-section .chat-container {
-  z-index: 1;
-  padding: 10px;
-  border-radius: 5px;
-  position: relative;
-  box-shadow: 0 0 14px #333;
-  width: 400px;
-  height: min(60vh, 350px);
-  background: rgba(255, 255, 255, 0.95);
-  animation: fromDown 0.5s ease forwards;
+    img {
+      width: 100%;
+    }
+  }
+
+  .chat-container {
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 14px #333;
+    width: 400px;
+    // height: min(60vh, 350px); // sass can't work with that
+    max-height: 350px;
+    min-height: 60vh;
+    background: rgba(255, 255, 255, 0.95);
+    animation: fromDown 0.5s ease forwards;
+  }
 }
 
 @keyframes fromDown {

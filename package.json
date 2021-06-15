@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=1996 nuxt",
+    "dev": " cross-env NUXT_PORT=1996 nuxt ",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=1996  nuxt start",
     "generate": "nuxt generate",
     "json:server": "json-server --watch db.json"
   },
