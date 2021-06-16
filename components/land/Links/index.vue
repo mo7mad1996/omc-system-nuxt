@@ -2,25 +2,41 @@
   <div class="col">
     <div class="row links">
       <div class="col-3">
-        <nuxt-link to="/polarization" class="لاعففخ">
+        <nuxt-link to="">
           قسم الاستقطاب
           <ul class="nested-menu">
-            <li><nuxt-link to="/">استقطاب عمال بدون مؤهل</nuxt-link></li>
             <li>
-              <nuxt-link to="/">استقطاب عمال الدبلومات الصناعيه</nuxt-link>
+              <nuxt-link to="/polarization">استقطاب عمال بدون مؤهل</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/">استقطاب عمال الدبلومات التجاريه</nuxt-link>
+              <nuxt-link to="/polarization"
+                >استقطاب عمال الدبلومات الصناعيه</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link to="/">استقطاب عمال الدبلومات الزراعيه</nuxt-link>
+              <nuxt-link to="/polarization"
+                >استقطاب عمال الدبلومات التجاريه</nuxt-link
+              >
             </li>
-            <li><nuxt-link to="/">استقطاب السائقين</nuxt-link></li>
-            <li><nuxt-link to="/">استقطاب المشغلين والفنيين</nuxt-link></li>
             <li>
-              <nuxt-link to="/">استقطاب المؤهلات العليا والإدارين</nuxt-link>
+              <nuxt-link to="/polarization"
+                >استقطاب عمال الدبلومات الزراعيه</nuxt-link
+              >
             </li>
-            <li><nuxt-link to="/">استقطاب الحرف والهندسيه</nuxt-link></li>
+            <li><nuxt-link to="/polarization">استقطاب السائقين</nuxt-link></li>
+            <li>
+              <nuxt-link to="/polarization"
+                >استقطاب المشغلين والفنيين</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/polarization"
+                >استقطاب المؤهلات العليا والإدارين</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/polarization">استقطاب الحرف والهندسيه</nuxt-link>
+            </li>
           </ul>
         </nuxt-link>
         <nuxt-link to="/">
