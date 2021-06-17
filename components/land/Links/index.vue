@@ -39,41 +39,71 @@
             </li>
           </ul>
         </nuxt-link>
-        <nuxt-link to="/">
+        <nuxt-link to>
           قطاع العملاء
           <ul class="nested-menu">
             <li>
-              <nuxt-link to="/">قطاع الصناعات البلاستيكيه والزجاجيه</nuxt-link>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات البلاستيكيه والزجاجيه</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link to="/">قطاع الصناعات الدوائية والمنظفات</nuxt-link>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات الدوائية والمنظفات</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link to="/">قطاع الصناعات النسيجيه والجلدية</nuxt-link>
-            </li>
-            <li><nuxt-link to="/">قطاع صناعات العصائر والالبان</nuxt-link></li>
-            <li><nuxt-link to="/">قطاع الصناعات الغذائية </nuxt-link></li>
-            <li>
-              <nuxt-link to="/">قطاع الصناعات المعدنيه الثقيله</nuxt-link>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات النسيجيه والجلدية</nuxt-link
+              >
             </li>
             <li>
-              <nuxt-link to="/">قطاع الصناعات الكهربيه والهندسيه</nuxt-link>
+              <nuxt-link to="/attraction"
+                >قطاع صناعات العصائر والالبان</nuxt-link
+              >
             </li>
-            <li><nuxt-link to="/">قطاع الصناعات الخشبيه والاثاث</nuxt-link></li>
-            <li><nuxt-link to="/">قطاع صناعة مواد البناء</nuxt-link></li>
             <li>
-              <nuxt-link to="/"
+              <nuxt-link to="/attraction">قطاع الصناعات الغذائية </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات المعدنيه الثقيله</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات الكهربيه والهندسيه</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات الخشبيه والاثاث</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/attraction">قطاع صناعة مواد البناء</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/attraction"
                 >قطاع صناعات مستحضرات التجميل والعنايه</nuxt-link
               >
             </li>
-            <li><nuxt-link to="/">قطاع الصناعات الكميائيه</nuxt-link></li>
             <li>
-              <nuxt-link to="/">قطاع الصناعات الورقيه والكارتون</nuxt-link>
+              <nuxt-link to="/attraction">قطاع الصناعات الكميائيه</nuxt-link>
             </li>
-            <li><nuxt-link to="/">قطاع الطباعه والاحبار</nuxt-link></li>
-            <li><nuxt-link to="/">قطاع الملابس</nuxt-link></li>
-            <li><nuxt-link to="/">قطاع المزارع</nuxt-link></li>
-            <li><nuxt-link to="/">قطاع البترول والطاقه</nuxt-link></li>
+            <li>
+              <nuxt-link to="/attraction"
+                >قطاع الصناعات الورقيه والكارتون</nuxt-link
+              >
+            </li>
+            <li>
+              <nuxt-link to="/attraction">قطاع الطباعه والاحبار</nuxt-link>
+            </li>
+            <li><nuxt-link to="/attraction">قطاع الملابس</nuxt-link></li>
+            <li><nuxt-link to="/attraction">قطاع المزارع</nuxt-link></li>
+            <li>
+              <nuxt-link to="/attraction">قطاع البترول والطاقه</nuxt-link>
+            </li>
           </ul>
         </nuxt-link>
         <nuxt-link to="/">
