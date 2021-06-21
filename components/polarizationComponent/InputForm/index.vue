@@ -1,5 +1,5 @@
 <template>
-  <form class="addWorkers" @submit.prevent="submit" ref="form">
+  <form class="addForm" @submit.prevent="submit" ref="form">
     <Time :week="week" />
 
     <hr />
@@ -124,61 +124,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.addWorkers {
-  background-color: #e4dff0;
-  margin: 10px 40px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 20px #999;
-
-  fieldset {
-    margin: 0 15px;
-    border: 1px solid #a4a5a8;
-    border-radius: 10px;
-
-    legend {
-      width: auto;
-      font-size: 1.2rem;
-      float: unset;
-      margin: 0 20px;
-      line-height: 1.2rem;
-      padding: 10px;
-      color: #656a83;
-    }
-  }
-
-  .input_group {
-    display: flex;
-    flex-wrap: wrap;
-    color: #de0124;
-
-    .input_field {
-      padding: 10px;
-      width: 30%;
-
-      select,
-      input:not([type='checkbox']) {
-        padding: 5px 8px;
-        display: block;
-        width: 100%;
-        border-radius: 5px;
-        border: 2px solid #bda3ff;
-        background-color: #f5f1ff;
-        color: #5b4fa0;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      select {
-        color: #4d4677;
-        appearance: none;
-      }
-    }
-  }
-}
-</style>

@@ -9,6 +9,7 @@
           <option v-for="l in resData" :key="l" :value="l" v-text="l" />
         </select>
       </div>
+
       <div class="input_field">
         <label for="nots">ملاحظات</label>
         <input id="nots" v-model="nots" />
@@ -32,6 +33,11 @@
         <label for="get_from">مصدر المكالمه</label>
         <input id="get_from" type="text" v-model="get_from" />
       </div>
+
+      <div class="input_field">
+        <label for="added_by">أضيف بواسطة</label>
+        <input id="added_by" type="text" v-model="added_by" />
+      </div>
     </div>
   </fieldset>
 </template>
@@ -50,6 +56,7 @@ export default {
       next_continue_date: '',
       final_call: '',
       get_from: '',
+      added_by: '',
     }
   },
   watch: {
@@ -68,6 +75,10 @@ export default {
     get_from() {
       this.get_fromMutation(this.get_from)
     },
+
+    added_by() {
+      this.added_byMutation(this.added_by)
+    },
   },
   methods: mapMutations('workers', [
     'resultMutation',
@@ -75,6 +86,7 @@ export default {
     'next_continue_dateMutation',
     'final_callMutation',
     'get_fromMutation',
+    'added_byMutation',
   ]),
 }
 </script>

@@ -17,8 +17,10 @@ const start = {
   qualification: '',
   phone: '',
   city: '',
-  age: '',
+  age: 21,
   job_title: '',
+  id_card: '',
+  added_by: '',
 }
 const state = () => start
 
@@ -98,6 +100,16 @@ const mutations = {
   job_titleMutation(state, data) {
     state.job_title = data
   },
+
+  id_cardMutation(state, data) {
+    state.id_card = data
+  },
+
+  added_byMutation(state, data) {
+    state.added_by = data
+  },
+
+  // to reset the data
   Reset(state) {
     Object.assign(state, start)
   },

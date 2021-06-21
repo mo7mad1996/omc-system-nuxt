@@ -1,0 +1,190 @@
+form.addForm {
+  background-color: #251843;
+  color: white;
+  margin: 20px 40px;
+  border-radius: 10px;
+  padding: 0 20px;
+  box-shadow: 0px 10px 20px #999;
+
+  fieldset {
+    border: 1px solid #a4a5a8;
+    border-radius: 10px;
+
+    legend {
+      width: auto;
+      font-size: 1.2rem;
+      float: unset;
+      margin: 0 20px;
+      line-height: 1.2rem;
+      padding: 10px;
+    }
+
+    .input_group {
+      display: flex;
+      flex-wrap: wrap;
+
+      .input_field {
+        padding: 10px;
+        width: calc(100% / 3);
+        min-width: 200px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      select {
+        appearance: none;
+      }
+      select,
+      input {
+        border: 2px solid #bda3ff;
+        background-color: #f5f1ff;
+      }
+
+      select,
+      input:not([type='radio']),
+      input:not([type='checkbox']) {
+        padding: 5px 8px;
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+        color: black;
+      }
+
+      .squaredThree {
+        width: 20px;
+        position: relative;
+        margin: 20px;
+
+        input[type='checkbox'] {
+          visibility: hidden;
+
+          &:checked + label {
+            background: #4ed68b;
+          }
+          &:checked + label::after {
+            opacity: 1;
+          }
+        }
+
+        label {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: linear-gradient(#b1afaf 0%, #45484d 100%);
+          border-radius: 4px;
+          box-shadow: inset 0px 1px 1px rgba(87, 67, 221, 0.5),
+            0px 1px 0px rgba(255, 255, 255, 0.4);
+
+          &::after {
+            content: '';
+            width: 12px;
+            height: 8px;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border: 3px solid #fcfff4;
+            border-top: none;
+            border-right: none;
+            background: transparent;
+            opacity: 0;
+            transform: rotate(-45deg);
+          }
+
+          &:hover::after {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .radio-group {
+        display: flex;
+        align-items: center;
+
+        input {
+          display: none;
+        }
+        label {
+          cursor: pointer;
+          margin: 0;
+        }
+
+        label:not(.mark) {
+          flex: 1;
+          user-select: none;
+          padding: 0 10px;
+        }
+        .mark {
+          display: block;
+          height: 20px;
+          width: 20px;
+          border-radius: 5px;
+          border: 2px solid rebeccapurple;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 50%;
+            width: 80%;
+            top: 10%;
+            left: 10%;
+            border: 3px solid rgb(38, 73, 31);
+            border-top-width: 0;
+            border-right-width: 0;
+            transform: rotate(-45deg);
+            opacity: 0;
+          }
+
+          &:hover::after {
+            opacity: 0.5;
+          }
+        }
+
+        input[type='radio']:checked + .mark::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    .textarea-group {
+      padding: 10px;
+      width: 100%;
+
+      textarea {
+        width: 100%;
+        padding: 5px 10px;
+        border-radius: 5px;
+
+        border: 2px solid #bda3ff;
+        background-color: #f5f1ff;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 3rem;
+    flex-flow: row-reverse;
+
+    button {
+      color: #130c22;
+      background-color: #fff;
+      padding: 5px 20px;
+      border: none;
+      border-radius: 5px;
+
+      &[type='submit'] {
+        background-color: #130c22;
+        color: #fff;
+      }
+    }
+  }
+}

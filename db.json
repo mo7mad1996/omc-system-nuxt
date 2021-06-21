@@ -1,5 +1,30 @@
 {
   "users": [],
   "customers": [],
-  "workers": []
+  "workers": [
+    {
+      "result": "",
+      "nots": "",
+      "next_continue_date": "",
+      "final_call": "",
+      "get_from": "",
+      "registr_date": "",
+      "the_day": "الاحد",
+      "continue1": "",
+      "continue1_date": "",
+      "continue2": "",
+      "continue2_date": "",
+      "continue3": "",
+      "continue3_date": "",
+      "factory": "",
+      "person_name": "",
+      "qualification": "",
+      "phone": "",
+      "city": "",
+      "age": "",
+      "job_title": "",
+      "id_card": "asd2212",
+      "id": 1
+    }
+  ]
 }

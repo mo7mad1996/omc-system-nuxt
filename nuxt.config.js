@@ -14,7 +14,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/bootstrap.min.css', '~/assets/reset.css'],
+  css: [
+    '~/assets/css/bootstrap.min.css',
+    '~/assets/css/reset.css',
+    '~/assets/scss/main.scss',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -33,7 +37,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:3000/', // json server host [  my ip + json-server::post  ]
+    // json server host [  my ip + json-server::port  ]
+    baseURL: 'http://localhost:3000/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

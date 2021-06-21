@@ -41,6 +41,12 @@
 
         <input id="job_title" type="text" v-model="job_title" />
       </div>
+
+      <div class="input_field">
+        <label for="id_card">الرقم القومي</label>
+
+        <input id="id_card" type="text" v-model="id_card" />
+      </div>
     </div>
   </fieldset>
 </template>
@@ -60,6 +66,7 @@ export default {
       city: '',
       age: 21,
       job_title: '',
+      id_card: '',
     }
   },
   watch: {
@@ -81,6 +88,10 @@ export default {
     job_title() {
       this.job_titleMutation(this.job_title)
     },
+
+    id_card() {
+      this.id_cardMutation(this.id_card)
+    },
   },
   methods: mapMutations('workers', [
     'person_nameMutation',
@@ -89,6 +100,7 @@ export default {
     'cityMutation',
     'ageMutation',
     'job_titleMutation',
+    'id_cardMutation',
   ]),
 }
 </script>
