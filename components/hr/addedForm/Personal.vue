@@ -3,8 +3,8 @@
     <legend>البيانات الشخصيه</legend>
     <div class="input_group">
       <div class="input_field">
-        <label for="name">الأسم</label>
-        <input id="name" type="text" v-model="name" />
+        <label for="person_name">الأسم</label>
+        <input id="person_name" type="text" v-model="person_name" />
       </div>
 
       <div class="input_field">
@@ -54,11 +54,14 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Personal',
   data() {
     return {
-      name: '',
+      person_name: '',
       home: '',
       age: 21,
       somke: false,
@@ -68,5 +71,41 @@ export default {
       whatsApp: '',
     }
   },
+  watch: {
+    person_name() {
+      this.person_nameMutation(this.person_name)
+    },
+    home() {
+      this.homeMutation(this.home)
+    },
+    age() {
+      this.ageMutation(this.age)
+    },
+    somke() {
+      this.somkeMutation(this.somke)
+    },
+    army() {
+      this.armyMutation(this.army)
+    },
+    drivingLicense() {
+      this.drivingLicenseMutation(this.drivingLicense)
+    },
+    phone() {
+      this.phoneMutation(this.phone)
+    },
+    whatsApp() {
+      this.whatsAppMutation(this.whatsApp)
+    },
+  },
+  methods: mapMutations('workers', [
+    'person_nameMutation',
+    'phoneMutation',
+    'ageMutation',
+    'homeMutation',
+    'somkeMutation',
+    'armyMutation',
+    'drivingLicenseMutation',
+    'whatsAppMutation',
+  ]),
 }
 </script>

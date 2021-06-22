@@ -63,17 +63,20 @@
         </div>
       </div>
       <div class="input_field">
-        <label for="workSpace">
+        <label for="factory">
           بناء على هذا التقيم،<br />
           ما المصنع الذي يتناسب مع المتقدم للعمل؟
         </label>
-        <input type="text" id="a" v-model="workSpace" />
+        <input type="text" id="a" v-model="factory" />
       </div>
     </div>
   </fieldset>
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Questions',
   data() {
@@ -83,8 +86,36 @@ export default {
       body: true,
       drugs: false,
       mind: true,
-      workSpace: '',
+      factory: '',
     }
   },
+  watch: {
+    look() {
+      this.lookMutation(this.look)
+    },
+    talk() {
+      this.talkMutation(this.talk)
+    },
+    body() {
+      this.bodyMutation(this.body)
+    },
+    drugs() {
+      this.drugsMutation(this.drugs)
+    },
+    mind() {
+      this.mindMutation(this.mind)
+    },
+    factory() {
+      this.factoryMutation(this.factory)
+    },
+  },
+  methods: mapMutations('workers', [
+    'lookMutation',
+    'talkMutation',
+    'bodyMutation',
+    'drugsMutation',
+    'mindMutation',
+    'factoryMutation',
+  ]),
 }
 </script>

@@ -46,6 +46,9 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Important',
 
@@ -56,5 +59,21 @@ export default {
       rideBus: false,
     }
   },
+  watch: {
+    companyHome() {
+      this.companyHomeMutation(this.companyHome)
+    },
+    useBus() {
+      this.companyHomeMutation(this.companyHome)
+    },
+    rideBus() {
+      this.companyHomeMutation(this.companyHome)
+    },
+  },
+  methods: mapMutations('workers', [
+    'companyHomeMutation',
+    'useBusMutation',
+    'rideBusMutation',
+  ]),
 }
 </script>

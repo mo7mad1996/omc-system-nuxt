@@ -1,128 +1,228 @@
+/*
+ * this constante start made to,
+ * reset state after every form submit
+ */
 const start = {
-  result: '',
-  nots: '',
-  next_continue_date: '',
-  final_call: '',
-  get_from: '',
-  registr_date: '',
-  the_day: '',
-  continue1: '',
-  continue1_date: '',
-  continue2: '',
-  continue2_date: '',
-  continue3: '',
-  continue3_date: '',
-  factory: '',
-  person_name: '',
-  qualification: '',
-  phone: '',
-  city: '',
-  age: 21,
-  job_title: '',
-  id_card: '',
-  added_by: '',
+  personInfo: {
+    id: null,
+    person_name: '',
+    age: 21,
+    phone: '',
+    id_card: '',
+    city: '',
+    job_title: '',
+    qualification: '',
+    education: '',
+
+    home: '',
+    somke: false,
+    army: '',
+    drivingLicense: '',
+    whatsApp: '',
+
+    the_day: '',
+    registr_date: '',
+    nots: '',
+    result: '',
+    final_call: '',
+    get_from: '',
+
+    next_continue_date: '',
+    continue1: '',
+    continue1_date: '',
+    continue2: '',
+    continue2_date: '',
+    continue3: '',
+    continue3_date: '',
+
+    factory: '',
+    added_by: '',
+
+    // HR
+    HrReject: '',
+    PersonReject: '',
+
+    look: true,
+    talk: true,
+    body: true,
+    drugs: false,
+    mind: true,
+
+    history_work: '',
+    last_place: '',
+    why_left_last_job: '',
+
+    companyHome: false,
+    useBus: false,
+    rideBus: false,
+  },
 }
+
 const state = () => start
 
 const getters = {}
 
 const mutations = {
   resultMutation(state, data) {
-    state.result = data
+    state.personInfo.result = data
   },
 
   notsMutation(state, data) {
-    state.nots = data
+    state.personInfo.nots = data
   },
 
   next_continue_dateMutation(state, data) {
-    state.next_continue_date = data
+    state.personInfo.next_continue_date = data
   },
 
   final_callMutation(state, data) {
-    state.final_callm = data
+    state.personInfo.final_callm = data
   },
 
   get_fromMutation(state, data) {
-    state.get_from = data
+    state.personInfo.get_from = data
   },
 
   registr_dateMutation(state, data) {
-    state.registr_date = data
+    state.personInfo.registr_date = data
   },
 
   the_dayMutation(state, data) {
-    state.the_day = data
+    state.personInfo.the_day = data
   },
   continue1Mutation(state, data) {
-    state.continue1 = data
+    state.personInfo.continue1 = data
   },
   continue1_dateMutation(state, data) {
-    state.continue1_date = data
+    state.personInfo.continue1_date = data
   },
   continue2Mutation(state, data) {
-    state.continue2 = data
+    state.personInfo.continue2 = data
   },
   continue2_dateMutation(state, data) {
-    state.continue2_date = data
+    state.personInfo.continue2_date = data
   },
   continue3Mutation(state, data) {
-    state.continue3 = data
+    state.personInfo.continue3 = data
   },
   continue3_dateMutation(state, data) {
-    state.continue3_date = data
+    state.personInfo.continue3_date = data
   },
 
   factoryMutation(state, data) {
-    state.factory = data
+    state.personInfo.factory = data
   },
 
   person_nameMutation(state, data) {
-    state.person_name = data
+    state.personInfo.person_name = data
   },
 
   qualificationMutation(state, data) {
-    state.qualification = data
+    state.personInfo.qualification = data
   },
 
   phoneMutation(state, data) {
-    state.phone = data
+    state.personInfo.phone = data
   },
 
   cityMutation(state, data) {
-    state.city = data
+    state.personInfo.city = data
   },
 
   ageMutation(state, data) {
-    state.age = data
+    state.personInfo.age = data
   },
 
   job_titleMutation(state, data) {
-    state.job_title = data
+    state.personInfo.job_title = data
   },
 
   id_cardMutation(state, data) {
-    state.id_card = data
+    state.personInfo.id_card = data
   },
 
   added_byMutation(state, data) {
-    state.added_by = data
+    state.personInfo.added_by = data
+  },
+
+  // HR mutations
+  HrRejectMutation(state, data) {
+    state.personInfo.HrReject = data
+  },
+  PersonRejectMutation(state, data) {
+    state.personInfo.PersonReject = data
+  },
+
+  lookMutation(state, data) {
+    state.personInfo.look = data
+  },
+  talkMutation(state, data) {
+    state.personInfo.talk = data
+  },
+  bodyMutation(state, data) {
+    state.personInfo.body = data
+  },
+  drugsMutation(state, data) {
+    state.personInfo.drugs = data
+  },
+  mindMutation(state, data) {
+    state.personInfo.mind = data
+  },
+  educationMutation(state, data) {
+    state.personInfo.education = data
+  },
+  history_workMutation(state, data) {
+    state.personInfo.history_work = data
+  },
+  last_placeMutation(state, data) {
+    state.personInfo.last_place = data
+  },
+  why_left_last_jobMutation(state, data) {
+    state.personInfo.why_left_last_job = data
+  },
+
+  companyHomeMutation(state, data) {
+    state.personInfo.companyHome = data
+  },
+  useBusMutation(state, data) {
+    state.personInfo.useBus = data
+  },
+  rideBusMutation(state, data) {
+    state.personInfo.rideBus = data
+  },
+  homeMutation(state, data) {
+    state.personInfo.home = data
+  },
+  somkeMutation(state, data) {
+    state.personInfo.somke = data
+  },
+  armyMutation(state, data) {
+    state.personInfo.army = data
+  },
+  drivingLicenseMutation(state, data) {
+    state.personInfo.drivingLicense = data
+  },
+  whatsAppMutation(state, data) {
+    state.personInfo.whatsApp = data
   },
 
   // to reset the data
   Reset(state) {
-    Object.assign(state, start)
+    console.log('in reset')
+    state.personInfo = start.personInfo
+    console.log('Done')
   },
 }
 
 export const actions = {
   addWorkers({ commit, state }, form) {
     this.$axios
-      .$post('workers', Object.assign({}, state))
+      .$post('workers', Object.assign({}, state.personInfo))
       .then((res) => console.log(res, ctx))
+      .catch((err) => console.log('an Error', err.stateu))
       .finally((_) => {
         commit('Reset')
-        form.submit()
+        // form.submit()
       })
   },
 }

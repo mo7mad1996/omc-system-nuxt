@@ -11,10 +11,19 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Education',
   data() {
     return { education: '' }
   },
+  watch: {
+    education() {
+      this.educationMutation(this.education)
+    },
+  },
+  methods: mapMutations('workers', ['educationMutation']),
 }
 </script>

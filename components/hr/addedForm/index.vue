@@ -1,5 +1,5 @@
 <template>
-  <form class="addForm">
+  <form class="addForm" ref="form" @submit.prevent="submit">
     <Personal />
     <hr />
     <Education />
@@ -18,6 +18,9 @@
 </template>
 
 <script>
+// vuex
+import { mapActions } from 'vuex'
+
 // components
 import Personal from '~/components/hr/addedForm/Personal'
 import Education from '~/components/hr/addedForm/Education'
@@ -38,5 +41,11 @@ export default {
     Buttons,
   },
   name: 'HrAddedForm',
+  methods: {
+    ...mapActions('workers', ['addWorkers']),
+    submit() {
+      this.addWorkers(this.$refs.form)
+    },
+  },
 }
 </script>
