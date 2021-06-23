@@ -111,11 +111,13 @@
 
           <ul class="nested-menu">
             <li>
-              <nuxt-link to="/hr/submission-form"
-                >قسم نموزج تقديم ملئ بيانات</nuxt-link
-              >
+              <nuxt-link to="/hr/submission-form">
+                قسم نموزج تقديم ملئ بيانات
+              </nuxt-link>
             </li>
-            <li><nuxt-link to="/">قسم التعينات</nuxt-link></li>
+            <li>
+              <nuxt-link to="/hr/appointments">قسم التعينات</nuxt-link>
+            </li>
             <li><nuxt-link to="/">قسم الاستقالات</nuxt-link></li>
             <li><nuxt-link to="/">قسم الاجازات</nuxt-link></li>
             <li><nuxt-link to="/">قسم إخلاء الطرف</nuxt-link></li>

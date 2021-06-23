@@ -29,7 +29,7 @@
 
 <script>
 // vuex
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 // components
 import Time from '~/components/polarizationComponent/InputForm/Time'
@@ -53,74 +53,12 @@ export default {
     Place,
     Buttons,
   },
-  data() {
-    return {
-      resData: [
-        'تجهيز اوراق',
-        'رافض',
-        'لم يتم الرد',
-        'الهاتف مغلق',
-        'غير مناسب للعمل',
-        'مقابة مؤهلات',
-        'اختبار سائقين',
-      ],
-      week: [
-        'السبت',
-        'الاحد',
-        'الاثنين',
-        'الثلاثاء',
-        'الاربعاء',
-        'الخميس',
-        'الجمعه',
-      ],
-      cities: [
-        'الوادي الجديد',
-        'الاسكندرية',
-        'الاسماعيلية',
-        'اسوان',
-        'اسيوط',
-        'الاقصر',
-        'البحر الاحمر',
-        'البحيرة',
-        'بني سويف',
-        'بورسعيد',
-        'جنوب سيناء',
-        'شمال سيناء',
-        'الجيزة',
-        'الدقهليه',
-        'دمياط',
-        'سوهاج',
-        'السويس',
-        'الشرقيه',
-        'الغربيه',
-        'الفيوم',
-        'القاهرة',
-        'القليوبية',
-        'قنا',
-        'كفرالشيخ',
-        'مطروح',
-        'المنوفيه',
-        'المنيا',
-      ],
-
-      qualifications: [
-        'لا يقرا و لا يكتب',
-        'بدون مؤهل',
-        'محو اميه',
-        'اعدادية',
-        'دبلوم صنايع',
-        'دبلوم تجارة',
-        'دبلوم زراعة',
-        'طالب',
-        'مؤهل عالي',
-      ],
-    }
-  },
   methods: {
     ...mapActions('workers', ['addWorkers']),
     submit() {
       this.addWorkers(this.$refs.form)
     },
   },
+  computed: mapGetters(['resData', 'week', 'cities', 'qualifications']),
 }
 </script>
