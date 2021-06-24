@@ -19,6 +19,8 @@ const start = {
     army: '',
     whatsApp: '',
     drivingLicense: '',
+    birth_day: '',
+    visa: '',
 
     the_day: '',
     registr_date: '',
@@ -67,6 +69,17 @@ const start = {
     insurance: false,
     resignation_reason: '',
     resignation_date: '',
+
+    // الاوراق
+    qualificationFile: false,
+    armyFile: false,
+    criminal_record: false,
+    birth_certificate: false,
+    id_card_Copy: false,
+    photos: false,
+    business_certificate: false,
+    security_inquiry: false,
+    form111: false,
   },
 }
 
@@ -74,22 +87,10 @@ const state = () => start
 
 const getters = {}
 
-const actions = {
-  addWorkers({ commit, state }, form) {
-    this.$axios
-      .$post('workers', Object.assign({}, state.personData))
-      .then((res) => console.log(res, ctx))
-      .catch((err) => console.log('an Error', err.stateu))
-      .finally((_) => {
-        commit('Reset')
-        // form.submit()
-      })
-  },
-}
-
 let mutations = {}
 for (let i in start.personData) {
   mutations[i + 'Mutation'] = function (state, data) {
+    console.log(i, ': ', data)
     state.personData[i] = data
   }
 }
@@ -97,6 +98,19 @@ for (let i in start.personData) {
 // to reset the data
 mutations.reset = function (state) {
   state.personData = start.personData
+}
+
+const actions = {
+  addWorkers({ commit, state }, form) {
+    this.$axios
+      .$post('workers', Object.assign({}, state.personData))
+      .then((res) => console.log(res))
+      .catch((err) => console.log('an Error', err))
+      .finally((_) => {
+        commit('reset')
+        // form.submit()
+      })
+  },
 }
 
 const store = {

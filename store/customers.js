@@ -34,13 +34,21 @@ for (let i in start.personData) {
   }
 }
 
+// to reset the data
+mutations.reset = function (state) {
+  state.companyData = start.companyData
+}
+
 const actions = {
   addCustomer({ state }, form) {
     console.log(state, form)
     this.$axios
       .$post('customers', state)
       .then((res) => console.log(res))
-      .finally(() => form.submit())
+      .finally(() => {
+        commit('Reset')
+        // form.submit()
+      })
   },
 }
 

@@ -47,7 +47,7 @@
 
 <script>
 // vuex
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'PersonalData',
@@ -56,12 +56,44 @@ export default {
     return {
       person_name: '',
       id_card: '',
-      birth_day: '',
       phone: '',
       city: '',
       qualification: '',
+      birth_day: '',
       visa: '',
     }
   },
+  watch: {
+    person_name() {
+      this.person_nameMutation(this.person_name)
+    },
+    id_card() {
+      this.id_cardMutation(this.id_card)
+    },
+    phone() {
+      this.phoneMutation(this.phone)
+    },
+    city() {
+      this.cityMutation(this.city)
+    },
+    qualification() {
+      this.qualificationMutation(this.qualificationMutation)
+    },
+    birth_day() {
+      this.birth_dayMutation(this.birth_day)
+    },
+    visa() {
+      this.visaMutation(this.visa)
+    },
+  },
+  methods: mapMutations('workers', [
+    'person_nameMutation',
+    'id_cardMutation',
+    'birth_dayMutation',
+    'phoneMutation',
+    'cityMutation',
+    'qualificationMutation',
+    'visaMutation',
+  ]),
 }
 </script>

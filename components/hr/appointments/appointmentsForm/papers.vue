@@ -9,7 +9,7 @@
             type="radio"
             id="qualificationok"
             :value="true"
-            v-model="qualification"
+            v-model="qualificationFile"
           />
           <label for="qualificationok" class="mark"></label>
           <label for="qualificationok">موجود</label>
@@ -17,7 +17,7 @@
             type="radio"
             id="qualificationNo"
             :value="false"
-            v-model="qualification"
+            v-model="qualificationFile"
           />
           <label for="qualificationNo" class="mark"></label>
           <label for="qualificationNo">غير موجود</label>
@@ -27,10 +27,10 @@
       <div class="input_field">
         <label>اصل شهادة الجيش</label>
         <div class="radio-group">
-          <input type="radio" id="armyOK" :value="true" v-model="army" />
+          <input type="radio" id="armyOK" :value="true" v-model="armyFile" />
           <label for="armyOK" class="mark"></label>
           <label for="armyOK">موجود</label>
-          <input type="radio" id="armyNo" :value="false" v-model="army" />
+          <input type="radio" id="armyNo" :value="false" v-model="armyFile" />
           <label for="armyNo" class="mark"></label>
           <label for="armyNo">غير موجود</label>
         </div>
@@ -83,10 +83,20 @@
       <div class="input_field">
         <label>صورة البطاقه</label>
         <div class="radio-group">
-          <input type="radio" id="id_card_ok" :value="true" v-model="id_card" />
+          <input
+            type="radio"
+            id="id_card_ok"
+            :value="true"
+            v-model="id_card_Copy"
+          />
           <label for="id_card_ok" class="mark"></label>
           <label for="id_card_ok">موجود</label>
-          <input type="radio" id="id_card_no" value="false" v-model="id_card" />
+          <input
+            type="radio"
+            id="id_card_no"
+            :value="false"
+            v-model="id_card_Copy"
+          />
           <label for="id_card_no" class="mark"></label>
           <label for="id_card_no">غير موجود</label>
         </div>
@@ -164,20 +174,63 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Papers',
   data() {
     return {
-      qualification: false,
-      army: false,
+      qualificationFile: false,
+      armyFile: false,
       criminal_record: false,
       birth_certificate: false,
-      id_card: false,
+      id_card_Copy: false,
       photos: false,
       business_certificate: false,
       security_inquiry: false,
       form111: false,
     }
   },
+  watch: {
+    qualificationFile() {
+      this.qualificationFileMutation(this.qualificationFile)
+    },
+    armyFile() {
+      this.armyFileMutation(this.armyFile)
+    },
+    criminal_record() {
+      this.criminal_recordMutation(this.criminal_record)
+    },
+    birth_certificate() {
+      this.birth_certificateMutation(this.birth_certificate)
+    },
+    id_card_Copy() {
+      this.id_card_CopyMutation(this.id_card_Copy)
+    },
+    photos() {
+      this.photosMutation(this.photos)
+    },
+    business_certificate() {
+      this.business_certificateMutation(this.business_certificate)
+    },
+    security_inquiry() {
+      this.security_inquiryMutation(this.security_inquiry)
+    },
+    form111() {
+      this.form111Mutation(this.form111)
+    },
+  },
+  methods: mapMutations('workers', [
+    'qualificationFileMutation',
+    'armyFileMutation',
+    'criminal_recordMutation',
+    'birth_certificateMutation',
+    'id_card_CopyMutation',
+    'photosMutation',
+    'business_certificateMutation',
+    'security_inquiryMutation',
+    'form111Mutation',
+  ]),
 }
 </script>
