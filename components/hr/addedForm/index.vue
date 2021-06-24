@@ -1,5 +1,5 @@
 <template>
-  <form class="addForm" ref="form" @submit.prevent="submit">
+  <AddWrkersForm formTitle="قسم نموزج تقديم">
     <Personal />
     <hr />
     <Education />
@@ -13,39 +13,29 @@
 
     <!-- خاص يإدارة التعاقدات -->
     <Private />
-    <Buttons />
-  </form>
+  </AddWrkersForm>
 </template>
 
 <script>
-// vuex
-import { mapActions } from 'vuex'
-
 // components
+import AddWrkersForm from '~/components/baseForms/addWrkersForm/index'
 import Personal from '~/components/hr/addedForm/Personal'
 import Education from '~/components/hr/addedForm/Education'
 import Important from '~/components/hr/addedForm/Experiences'
 import Experiences from '~/components/hr/addedForm/Important'
 import RecommendOne from '~/components/hr/addedForm/RecommendOne'
 import Private from '~/components/hr/addedForm/private/index'
-import Buttons from '~/components/hr/addedForm/Buttons'
 
 export default {
   components: {
+    AddWrkersForm,
     Personal,
     Education,
     Experiences,
     Important,
     RecommendOne,
     Private,
-    Buttons,
   },
   name: 'HrAddedForm',
-  methods: {
-    ...mapActions('workers', ['addWorkers']),
-    submit() {
-      this.addWorkers(this.$refs.form)
-    },
-  },
 }
 </script>

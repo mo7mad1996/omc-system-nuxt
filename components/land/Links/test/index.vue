@@ -108,7 +108,7 @@
         <li>
           <nuxt-link to="/hr/appointments">قسم التعينات</nuxt-link>
         </li>
-        <li><nuxt-link to="/">قسم الاستقالات</nuxt-link></li>
+        <li><nuxt-link to="/hr/resignation">قسم الاستقالات</nuxt-link></li>
         <li><nuxt-link to="/">قسم الاجازات</nuxt-link></li>
         <li><nuxt-link to="/">قسم إخلاء الطرف</nuxt-link></li>
         <li><nuxt-link to="/">قسم تصاريح الخروج</nuxt-link></li>

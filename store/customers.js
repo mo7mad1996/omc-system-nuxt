@@ -41,13 +41,12 @@ mutations.reset = function (state) {
 
 const actions = {
   addCustomer({ state }, form) {
-    console.log(state, form)
     this.$axios
       .$post('customers', state)
       .then((res) => console.log(res))
       .finally(() => {
         commit('Reset')
-        // form.submit()
+        form.submit()
       })
   },
 }

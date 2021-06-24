@@ -90,7 +90,6 @@ const getters = {}
 let mutations = {}
 for (let i in start.personData) {
   mutations[i + 'Mutation'] = function (state, data) {
-    console.log(i, ': ', data)
     state.personData[i] = data
   }
 }
@@ -108,7 +107,7 @@ const actions = {
       .catch((err) => console.log('an Error', err))
       .finally((_) => {
         commit('reset')
-        // form.submit()
+        form.submit()
       })
   },
 }

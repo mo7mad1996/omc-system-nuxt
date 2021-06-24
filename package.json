@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=1996  nuxt start",
     "generate": "nuxt generate",
-    "json:server": "json-server --watch db.json"
+    "server": "json-server --watch db.json"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",

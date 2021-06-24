@@ -1,5 +1,5 @@
 <template>
-  <form class="addForm" @submit.prevent="submit" ref="form">
+  <AddWrkersForm formTitle="قسم التعينات">
     <Factory />
     <hr />
 
@@ -13,38 +13,27 @@
     <hr />
 
     <InsurancesAndResignations />
-
-    <Buttons />
-  </form>
+  </AddWrkersForm>
 </template>
 
 <script>
-// vuex
-import { mapActions } from 'vuex'
-
 // components
+import AddWrkersForm from '~/components/baseForms/addWrkersForm/index'
 import Factory from '~/components/hr/appointments/appointmentsForm/factory'
 import HrData from '~/components/hr/appointments/appointmentsForm/hrData'
 import PersonalData from '~/components/hr/appointments/appointmentsForm/personalData'
 import Papers from '~/components/hr/appointments/appointmentsForm/papers'
 import InsurancesAndResignations from '~/components/hr/appointments/appointmentsForm/insurancesAndResignations'
-import Buttons from '~/components/hr/appointments/appointmentsForm/buttons'
 
 export default {
   name: 'AppointmentsForm',
   components: {
+    AddWrkersForm,
     Factory,
     HrData,
     PersonalData,
     Papers,
     InsurancesAndResignations,
-    Buttons,
-  },
-  methods: {
-    ...mapActions('workers', ['addWorkers']),
-    submit() {
-      this.addWorkers(this.$refs.form)
-    },
   },
 }
 </script>

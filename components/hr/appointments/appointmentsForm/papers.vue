@@ -8,16 +8,16 @@
           <input
             type="radio"
             id="qualificationok"
-            :value="true"
             v-model="qualificationFile"
+            :value="true"
           />
           <label for="qualificationok" class="mark"></label>
           <label for="qualificationok">موجود</label>
           <input
             type="radio"
             id="qualificationNo"
-            :value="false"
             v-model="qualificationFile"
+            :value="false"
           />
           <label for="qualificationNo" class="mark"></label>
           <label for="qualificationNo">غير موجود</label>
@@ -192,6 +192,7 @@ export default {
       form111: false,
     }
   },
+
   watch: {
     qualificationFile() {
       this.qualificationFileMutation(this.qualificationFile)
@@ -221,6 +222,7 @@ export default {
       this.form111Mutation(this.form111)
     },
   },
+
   methods: mapMutations('workers', [
     'qualificationFileMutation',
     'armyFileMutation',
