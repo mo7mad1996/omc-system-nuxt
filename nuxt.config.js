@@ -1,4 +1,9 @@
 export default {
+  // server
+  server: {
+    port: 1996,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - عمال مصر',

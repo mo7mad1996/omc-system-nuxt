@@ -26,6 +26,7 @@
         <label for="city">المقيم في</label>
         <input id="city" type="text" placeholder="محل الاقامه" v-model="city" />
       </div>
+      ولذلك أرغب في الاستقالة وأقدم استقالتي لسيادتكم راجيا قبولها
     </div>
   </fieldset>
 </template>

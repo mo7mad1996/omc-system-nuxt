@@ -109,9 +109,9 @@
           <nuxt-link to="/hr/appointments">قسم التعينات</nuxt-link>
         </li>
         <li><nuxt-link to="/hr/resignation">قسم الاستقالات</nuxt-link></li>
-        <li><nuxt-link to="/">قسم الاجازات</nuxt-link></li>
+        <li><nuxt-link to="/hr/vacationRequest">قسم الاجازات</nuxt-link></li>
         <li><nuxt-link to="/">قسم إخلاء الطرف</nuxt-link></li>
-        <li><nuxt-link to="/">قسم تصاريح الخروج</nuxt-link></li>
+        <li><nuxt-link to="/hr/exitpermit">قسم تصاريح الخروج</nuxt-link></li>
         <li><nuxt-link to="/">قسم حضور وانصراف موظفين</nuxt-link></li>
         <li><nuxt-link to="/">قسم المخالفات الادراية</nuxt-link></li>
         <li><nuxt-link to="/">قسم التدريب والتأهيل</nuxt-link></li>
