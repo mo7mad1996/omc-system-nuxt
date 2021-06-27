@@ -27,6 +27,11 @@ form.addForm {
         padding: 10px;
         width: calc(100% / 3);
         min-width: 200px;
+
+        .group {
+          display: flex;
+          gap: 10px;
+        }
       }
       label {
         display: block;

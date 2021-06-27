@@ -113,7 +113,9 @@
         <li><nuxt-link to="/">قسم إخلاء الطرف</nuxt-link></li>
         <li><nuxt-link to="/hr/exitpermit">قسم تصاريح الخروج</nuxt-link></li>
         <li><nuxt-link to="/">قسم حضور وانصراف موظفين</nuxt-link></li>
-        <li><nuxt-link to="/">قسم المخالفات الادراية</nuxt-link></li>
+        <li>
+          <nuxt-link to="/hr/infraction">قسم المخالفات الادراية</nuxt-link>
+        </li>
         <li><nuxt-link to="/">قسم التدريب والتأهيل</nuxt-link></li>
       </ul>
     </div>
