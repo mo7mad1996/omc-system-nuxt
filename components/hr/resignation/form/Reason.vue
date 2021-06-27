@@ -17,10 +17,14 @@
 <script>
 export default {
   name: 'Reason',
+  props: ['form_event'],
   data() {
-    return {
-      resignation_reason: '',
-    }
+    return { resignation_reason: '' }
+  },
+  watch: {
+    form_event() {
+      Object.assign(this, this, { resignation_reason: '' })
+    },
   },
 }
 </script>

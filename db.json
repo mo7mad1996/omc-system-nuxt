@@ -1,5 +1,7 @@
 {
   "users": [],
   "customers": [],
-  "workers": []
+  "workers": [],
+  "resignations": [],
+  "infractions": []
 }

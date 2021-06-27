@@ -28,8 +28,15 @@
 <script>
 export default {
   name: 'CompanyInfo',
+  props: ['form_event'],
   data() {
     return { job: '', factory_name: '', city: '' }
+  },
+  watch: {
+    // to reset the data on submit
+    form_event() {
+      Object.assign(this, this, { job: '', factory_name: '', city: '' })
+    },
   },
 }
 </script>

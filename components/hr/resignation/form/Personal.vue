@@ -32,10 +32,18 @@
 </template>
 
 <script>
+const data = { person_name: '', id_card: '', city: '' }
+
 export default {
   name: 'Personal',
+  props: ['form_event'],
   data() {
-    return { person_name: '', id_card: '', city: '' }
+    return Object.assign({}, data)
+  },
+  watch: {
+    form_event() {
+      Object.assign(this, data)
+    },
   },
 }
 </script>

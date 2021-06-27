@@ -43,7 +43,9 @@ const actions = {
   addCustomer({ state }, form) {
     this.$axios
       .$post('customers', state)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+      })
       .finally(() => {
         commit('Reset')
         form.submit()
