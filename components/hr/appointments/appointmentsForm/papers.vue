@@ -177,62 +177,45 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    qualificationFile: false,
+    armyFile: false,
+    criminal_record: false,
+    birth_certificate: false,
+    id_card_Copy: false,
+    photos: false,
+    business_certificate: false,
+    security_inquiry: false,
+    form111: false,
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  var mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Papers',
+  props: ['form_event'],
   data() {
-    return {
-      qualificationFile: false,
-      armyFile: false,
-      criminal_record: false,
-      birth_certificate: false,
-      id_card_Copy: false,
-      photos: false,
-      business_certificate: false,
-      security_inquiry: false,
-      form111: false,
-    }
+    return Object.assign({}, data)
   },
-
-  watch: {
-    qualificationFile() {
-      this.qualificationFileMutation(this.qualificationFile)
-    },
-    armyFile() {
-      this.armyFileMutation(this.armyFile)
-    },
-    criminal_record() {
-      this.criminal_recordMutation(this.criminal_record)
-    },
-    birth_certificate() {
-      this.birth_certificateMutation(this.birth_certificate)
-    },
-    id_card_Copy() {
-      this.id_card_CopyMutation(this.id_card_Copy)
-    },
-    photos() {
-      this.photosMutation(this.photos)
-    },
-    business_certificate() {
-      this.business_certificateMutation(this.business_certificate)
-    },
-    security_inquiry() {
-      this.security_inquiryMutation(this.security_inquiry)
-    },
-    form111() {
-      this.form111Mutation(this.form111)
-    },
-  },
-
-  methods: mapMutations('workers', [
-    'qualificationFileMutation',
-    'armyFileMutation',
-    'criminal_recordMutation',
-    'birth_certificateMutation',
-    'id_card_CopyMutation',
-    'photosMutation',
-    'business_certificateMutation',
-    'security_inquiryMutation',
-    'form111Mutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

@@ -20,22 +20,36 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = { HrReject: '', PersonReject: '' },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Results',
+  props: ['form_event'],
   data() {
-    return { HrReject: '', PersonReject: '' }
+    return Object.assign({}, data)
   },
-  watch: {
-    HrReject() {
-      this.HrRejectMutation(this.HrReject)
-    },
-    PersonReject() {
-      this.PersonRejectMutation(this.PersonReject)
-    },
-  },
-  methods: mapMutations('workers', [
-    'HrRejectMutation',
-    'PersonRejectMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

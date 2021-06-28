@@ -4,9 +4,9 @@
       <h2>خاص بــإدارة التعاقدات</h2>
     </header>
 
-    <Questions />
+    <Questions :form_event="form_event" />
     <hr />
-    <Results />
+    <Results :form_event="form_event" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import Results from '~/components/hr/addedForm/private/results'
 // import Questions from ''
 
 export default {
+  props: ['form_event'],
   name: 'Private',
   components: { Questions, Results },
 }

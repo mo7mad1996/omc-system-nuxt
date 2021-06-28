@@ -57,55 +57,45 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    person_name: '',
+    home: '',
+    age: 21,
+    somke: false,
+    army: '',
+    drivingLicense: '',
+    phone: '',
+    whatsApp: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Personal',
+  props: ['form_event'],
   data() {
-    return {
-      person_name: '',
-      home: '',
-      age: 21,
-      somke: false,
-      army: '',
-      drivingLicense: '',
-      phone: '',
-      whatsApp: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    person_name() {
-      this.person_nameMutation(this.person_name)
-    },
-    home() {
-      this.homeMutation(this.home)
-    },
-    age() {
-      this.ageMutation(this.age)
-    },
-    somke() {
-      this.somkeMutation(this.somke)
-    },
-    army() {
-      this.armyMutation(this.army)
-    },
-    drivingLicense() {
-      this.drivingLicenseMutation(this.drivingLicense)
-    },
-    phone() {
-      this.phoneMutation(this.phone)
-    },
-    whatsApp() {
-      this.whatsAppMutation(this.whatsApp)
-    },
-  },
-  methods: mapMutations('workers', [
-    'person_nameMutation',
-    'phoneMutation',
-    'ageMutation',
-    'homeMutation',
-    'somkeMutation',
-    'armyMutation',
-    'drivingLicenseMutation',
-    'whatsAppMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

@@ -77,45 +77,43 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    look: true,
+    talk: true,
+    body: true,
+    drugs: false,
+    mind: true,
+    factory: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Questions',
+  props: ['form_event'],
   data() {
-    return {
-      look: true,
-      talk: true,
-      body: true,
-      drugs: false,
-      mind: true,
-      factory: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    look() {
-      this.lookMutation(this.look)
-    },
-    talk() {
-      this.talkMutation(this.talk)
-    },
-    body() {
-      this.bodyMutation(this.body)
-    },
-    drugs() {
-      this.drugsMutation(this.drugs)
-    },
-    mind() {
-      this.mindMutation(this.mind)
-    },
-    factory() {
-      this.factoryMutation(this.factory)
-    },
-  },
-  methods: mapMutations('workers', [
-    'lookMutation',
-    'talkMutation',
-    'bodyMutation',
-    'drugsMutation',
-    'mindMutation',
-    'factoryMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

@@ -18,7 +18,7 @@
       </div>
 
       <div class="input_field">
-        <label for="phone">رقم التلفون</label>
+        <label for="phone">رقم التليفون</label>
         <input id="phone" type="text" v-model="phone" />
       </div>
       <div class="input_field">
@@ -49,51 +49,44 @@
 // vuex
 import { mapGetters, mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    person_name: '',
+    id_card: '',
+    phone: '',
+    city: '',
+    qualification: '',
+    birth_day: '',
+    visa: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  var mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'PersonalData',
-  computed: mapGetters(['cities', 'qualifications']),
+  props: ['form_event'],
   data() {
-    return {
-      person_name: '',
-      id_card: '',
-      phone: '',
-      city: '',
-      qualification: '',
-      birth_day: '',
-      visa: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    person_name() {
-      this.person_nameMutation(this.person_name)
-    },
-    id_card() {
-      this.id_cardMutation(this.id_card)
-    },
-    phone() {
-      this.phoneMutation(this.phone)
-    },
-    city() {
-      this.cityMutation(this.city)
-    },
-    qualification() {
-      this.qualificationMutation(this.qualificationMutation)
-    },
-    birth_day() {
-      this.birth_dayMutation(this.birth_day)
-    },
-    visa() {
-      this.visaMutation(this.visa)
-    },
-  },
-  methods: mapMutations('workers', [
-    'person_nameMutation',
-    'id_cardMutation',
-    'birth_dayMutation',
-    'phoneMutation',
-    'cityMutation',
-    'qualificationMutation',
-    'visaMutation',
-  ]),
+  computed: mapGetters(['cities', 'qualifications']),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

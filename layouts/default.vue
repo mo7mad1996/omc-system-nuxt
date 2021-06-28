@@ -40,7 +40,7 @@ export default {
     Chat,
   },
   created() {
-    console.log('This system build by Mohammed Ibrahem')
+    console.log('This system built by Mohammed Ibrahem')
   },
 }
 </script>

@@ -1,18 +1,20 @@
 <template>
   <AddWrkersForm formTitle="قسم نموزج تقديم">
-    <Personal />
-    <hr />
-    <Education />
-    <hr />
-    <Experiences />
-    <hr />
-    <Important />
+    <template v-slot:default="slotProps">
+      <Personal :form_event="slotProps.form_event" />
+      <hr />
+      <Education :form_event="slotProps.form_event" />
+      <hr />
+      <Experiences :form_event="slotProps.form_event" />
+      <hr />
+      <Important :form_event="slotProps.form_event" />
 
-    <hr />
-    <RecommendOne />
+      <hr />
+      <RecommendOne :form_event="slotProps.form_event" />
 
-    <!-- خاص يإدارة التعاقدات -->
-    <Private />
+      <!-- خاص يإدارة التعاقدات -->
+      <Private :form_event="slotProps.form_event" />
+    </template>
   </AddWrkersForm>
 </template>
 

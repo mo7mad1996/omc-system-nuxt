@@ -1,18 +1,20 @@
 <template>
   <AddWrkersForm formTitle="قسم التعينات">
-    <Factory />
-    <hr />
+    <template v-slot:default="slotProps">
+      <Factory :form_event="slotProps.form_event" />
+      <hr />
 
-    <HrData />
-    <hr />
+      <HrData :form_event="slotProps.form_event" />
+      <hr />
 
-    <PersonalData />
-    <hr />
+      <PersonalData :form_event="slotProps.form_event" />
+      <hr />
 
-    <Papers />
-    <hr />
+      <Papers :form_event="slotProps.form_event" />
+      <hr />
 
-    <InsurancesAndResignations />
+      <IandR :form_event="slotProps.form_event" />
+    </template>
   </AddWrkersForm>
 </template>
 
@@ -23,7 +25,7 @@ import Factory from '~/components/hr/appointments/appointmentsForm/factory'
 import HrData from '~/components/hr/appointments/appointmentsForm/hrData'
 import PersonalData from '~/components/hr/appointments/appointmentsForm/personalData'
 import Papers from '~/components/hr/appointments/appointmentsForm/papers'
-import InsurancesAndResignations from '~/components/hr/appointments/appointmentsForm/insurancesAndResignations'
+import IandR from '~/components/hr/appointments/appointmentsForm/IandR'
 
 export default {
   name: 'AppointmentsForm',
@@ -33,7 +35,7 @@ export default {
     HrData,
     PersonalData,
     Papers,
-    InsurancesAndResignations,
+    IandR,
   },
 }
 </script>

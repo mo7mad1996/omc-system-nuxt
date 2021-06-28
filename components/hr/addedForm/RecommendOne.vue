@@ -16,13 +16,42 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    RecommendName: '',
+    RecommendPhone: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'RecommendOne',
+  props: ['form_event'],
   data() {
-    return {
-      RecommendName: '',
-      RecommendPhone: '',
-    }
+    return Object.assign({}, data)
   },
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>
