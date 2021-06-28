@@ -15,18 +15,36 @@
 // vuex
 import { mapMutations } from 'vuex'
 
-export default {
-  name: 'Place',
-  data() {
-    return {
-      factory: '',
-    }
-  },
-  watch: {
-    factory() {
-      this.factoryMutation(this.factory)
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = { factory: '' },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
     },
   },
-  methods: mapMutations('workers', ['factoryMutation']),
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
+export default {
+  name: 'Place',
+  props: ['form_event'],
+  data() {
+    return Object.assign({}, data)
+  },
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

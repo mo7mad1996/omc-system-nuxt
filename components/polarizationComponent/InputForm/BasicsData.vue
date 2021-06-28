@@ -46,47 +46,43 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    result: '',
+    nots: '',
+    next_continue_date: '',
+    final_call: '',
+    get_from: '',
+    added_by: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'BasicsData',
-  props: ['resData'],
+  props: ['resData', 'form_event'],
   data() {
-    return {
-      result: '',
-      nots: '',
-      next_continue_date: '',
-      final_call: '',
-      get_from: '',
-      added_by: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    result() {
-      this.resultMutation(this.result)
-    },
-    nots() {
-      this.notsMutation(this.nots)
-    },
-    next_continue_date() {
-      this.next_continue_dateMutation(this.next_continue_date)
-    },
-    final_call() {
-      this.final_callMutation(this.final_call)
-    },
-    get_from() {
-      this.get_fromMutation(this.get_from)
-    },
-
-    added_by() {
-      this.added_byMutation(this.added_by)
-    },
-  },
-  methods: mapMutations('workers', [
-    'resultMutation',
-    'notsMutation',
-    'next_continue_dateMutation',
-    'final_callMutation',
-    'get_fromMutation',
-    'added_byMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

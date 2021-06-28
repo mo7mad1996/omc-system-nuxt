@@ -22,27 +22,39 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    continue3_date: '',
+    continue3: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Continue3',
-  props: ['resData'],
-
+  props: ['resData', 'form_event'],
   data() {
-    return {
-      continue3_date: '',
-      continue3: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    continue3_date() {
-      this.continue3_dateMutation(this.continue3)
-    },
-    continue3() {
-      this.continue3Mutation(this.continue3)
-    },
-  },
-  methods: mapMutations('workers', [
-    'continue3Mutation',
-    'continue3_dateMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>

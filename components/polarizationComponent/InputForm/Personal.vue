@@ -55,52 +55,44 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    person_name: '',
+    qualification: '',
+    phone: '',
+    city: '',
+    age: 21,
+    job_title: '',
+    id_card: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  const mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    console.log(d.padStart(60, '-'))
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Personal',
-  props: ['cities', 'qualifications'],
+  props: ['cities', 'qualifications', 'form_event'],
   data() {
-    return {
-      person_name: '',
-      qualification: '',
-      phone: '',
-      city: '',
-      age: 21,
-      job_title: '',
-      id_card: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    person_name() {
-      this.person_nameMutation(this.person_name)
-    },
-    qualification() {
-      this.qualificationMutation(this.qualification)
-    },
-    phone() {
-      this.phoneMutation(this.phone)
-    },
-    city() {
-      this.cityMutation(this.city)
-    },
-    age() {
-      this.ageMutation(this.age)
-    },
-    job_title() {
-      this.job_titleMutation(this.job_title)
-    },
-
-    id_card() {
-      this.id_cardMutation(this.id_card)
-    },
-  },
-  methods: mapMutations('workers', [
-    'person_nameMutation',
-    'qualificationMutation',
-    'phoneMutation',
-    'cityMutation',
-    'ageMutation',
-    'job_titleMutation',
-    'id_cardMutation',
-  ]),
+  watch,
+  methods: mapMutations('workers', Mutations),
 }
 </script>
