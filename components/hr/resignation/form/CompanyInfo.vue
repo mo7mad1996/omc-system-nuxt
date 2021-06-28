@@ -18,25 +18,51 @@
       </div>
 
       <div class="input_field">
-        <label for="city">بفرع</label>
-        <input id="city" type="text" placeholder="محل الاقامه" v-model="city" />
+        <label for="factory_place">بفرع</label>
+        <input
+          id="factory_place"
+          type="text"
+          placeholder="محل الاقامه"
+          v-model="factory_place"
+        />
       </div>
     </div>
   </fieldset>
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = { job: '', factory_name: '', factory_place: '' },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  var mutationName = 'resignation' + d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'CompanyInfo',
   props: ['form_event'],
   data() {
-    return { job: '', factory_name: '', city: '' }
+    return Object.assign({}, data)
   },
-  watch: {
-    // to reset the data on submit
-    form_event() {
-      Object.assign(this, this, { job: '', factory_name: '', city: '' })
-    },
-  },
+  watch,
+  methods: mapMutations('hr', Mutations),
 }
 </script>

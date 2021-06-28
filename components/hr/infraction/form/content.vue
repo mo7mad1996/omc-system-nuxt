@@ -65,10 +65,11 @@ const data = {
   Mutations = [] //
 
 for (let d in data) {
-  Mutations.push(d + 'Mutation')
+  var mutationName = 'infraction' + d + 'Mutation'
+  Mutations.push(mutationName)
 
   watch[d] = function () {
-    this[d + 'Mutation'](this[d])
+    this[mutationName](this[d])
   }
 }
 

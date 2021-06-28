@@ -20,6 +20,9 @@
 </template>
 
 <script>
+// vuex
+import { mapActions } from 'vuex'
+
 // components
 import FormHead from '~/components/baseForms/addWrkersForm/formHead'
 import Personal from '~/components/hr/resignation/form/Personal'
@@ -29,19 +32,22 @@ import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
 
 export default {
   name: 'ResignationForm',
+  components: { FormHead, Personal, CompanyInfo, Reason, Buttons },
+
   data() {
     return { form_event: false }
   },
-  components: { FormHead, Personal, CompanyInfo, Reason, Buttons },
+  data() {
+    return { form_event: false }
+  },
+
   methods: {
+    ...mapActions('hr', ['addResignation']),
     submit() {
+      this.addResignation()
       this.reset()
     },
     reset() {
-      /*
-        to reset the data on Form Actions
-        by props
-      */
       this.form_event = !this.form_event
     },
   },

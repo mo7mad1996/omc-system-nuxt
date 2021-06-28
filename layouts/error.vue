@@ -6,6 +6,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  head() {
+    return { title: 'غير متاح' }
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 .error {
   height: 100%;

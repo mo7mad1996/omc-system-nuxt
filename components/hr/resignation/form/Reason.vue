@@ -15,16 +15,38 @@
 </template>
 
 <script>
+// vuex
+import { mapMutations } from 'vuex'
+
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = { resignation_reason: '' },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  var mutationName = 'resignation' + d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Reason',
   props: ['form_event'],
   data() {
-    return { resignation_reason: '' }
+    return Object.assign({}, data)
   },
-  watch: {
-    form_event() {
-      Object.assign(this, this, { resignation_reason: '' })
-    },
-  },
+  watch,
+  methods: mapMutations('hr', Mutations),
 }
 </script>

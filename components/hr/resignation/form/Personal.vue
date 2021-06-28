@@ -32,7 +32,30 @@
 </template>
 
 <script>
-const data = { person_name: '', id_card: '', city: '' }
+// vuex
+import { mapMutations } from 'vuex'
+
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = { person_name: '', id_card: '', city: '' },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  var mutationName = 'resignation' + d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
 
 export default {
   name: 'Personal',
@@ -40,10 +63,7 @@ export default {
   data() {
     return Object.assign({}, data)
   },
-  watch: {
-    form_event() {
-      Object.assign(this, data)
-    },
-  },
+  watch,
+  methods: mapMutations('hr', Mutations),
 }
 </script>

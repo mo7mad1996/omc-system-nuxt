@@ -32,9 +32,9 @@ export default {
   },
 
   methods: {
-    ...mapActions('hr', ['addResignation']),
+    ...mapActions('hr', ['addvacationRequest']),
     submit() {
-      this.addResignation()
+      this.addvacationRequest()
       this.reset()
     },
     reset() {

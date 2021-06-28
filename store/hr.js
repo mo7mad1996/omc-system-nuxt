@@ -1,7 +1,6 @@
 let data = {
   // الاجازه
-  resignation: {
-    id: null,
+  vacationRequest: {
     vacation_date: '', // تاريخ الاجازه
     Person_name: '', // اسم الشخص
     factory: '', // اسم المصنع
@@ -13,7 +12,6 @@ let data = {
   },
   // مخالفه اداريه
   infraction: {
-    id: null,
     person_name: '', // اسم المخالف
     job: '', // الوظيفه
     branch: '', // الفرع
@@ -21,6 +19,25 @@ let data = {
     infraction_reason: '', // سبب المخالفه
     by_day: 0, // الخصم باليوم
     by_money: 0, // الخصم بالمال
+  },
+
+  // تصريح خروج
+  exitpermit: {
+    person_name: '', // اسم الشخص
+    administration: '', // إدارة
+    time: '', // وقت
+    reason: '', // سبب
+  },
+
+  // إستقاله
+  resignation: {
+    job: '',
+    factory_name: '',
+    factory_place: '',
+    person_name: '',
+    id_card: '',
+    city: '',
+    resignation_reason: '',
   },
 }
 
@@ -33,42 +50,27 @@ const mutations = {
     state = data
   },
 }
+const actions = {}
 
-// اجازاه
-for (let d in data.resignation) {
-  mutations[d + 'Mutation'] = function (state, c) {
-    state.resignation[d] = c
+for (let b in data) {
+  // mutations
+  for (let d in data[b]) {
+    mutations[b + d + 'Mutation'] = function (state, c) {
+      state[b][d] = c
+    }
   }
-}
 
-// مخالفه
-for (let d in data.infraction) {
-  mutations[d + 'Mutation'] = function (state, c) {
-    state.infraction[d] = c
-  }
-}
-
-const actions = {
-  // طلب اجازه
-  addResignation({ commit, state }) {
+  // actions
+  actions['add' + b] = function ({ commit, state }) {
+    let subLink = b + 's'
     this.$axios
-      .$post('resignations', state.resignation)
+      .$post(subLink, state[b])
       .then(() => {
         commit('reset')
       })
       .catch((err) => console.log(err))
       .finally()
-  },
-  // مخالفه اداريه
-  addinfraction({ commit, state }) {
-    this.$axios
-      .$post('infractions', state.infraction)
-      .then(() => {
-        commit('reset')
-      })
-      .catch((err) => console.log(err))
-      .finally()
-  },
+  }
 }
 
 const store = { state, getters, mutations, actions }

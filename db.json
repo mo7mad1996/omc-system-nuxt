@@ -2,6 +2,19 @@
   "users": [],
   "customers": [],
   "workers": [],
+  "vacationRequests": [],
   "resignations": [],
-  "infractions": []
+  "infractions": [
+    {
+      "person_name": "",
+      "job": "",
+      "branch": "",
+      "infraction_type": "",
+      "infraction_reason": "",
+      "by_day": 0,
+      "by_money": "asdasd",
+      "id": 1
+    }
+  ],
+  "exitpermits": []
 }
