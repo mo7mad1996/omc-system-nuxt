@@ -8,6 +8,9 @@
 
     <!-- Form Actions -->
     <Buttons />
+
+    <!-- form status -->
+    <Msg />
   </form>
 </template>
 
@@ -18,6 +21,7 @@ import { mapActions } from 'vuex'
 // components
 import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
 import FormHead from '~/components/baseForms/addWrkersForm/formHead'
+import Msg from '~/components/baseForms/addWrkersForm/msg'
 
 export default {
   name: 'AddWrkersForm',
@@ -36,6 +40,7 @@ export default {
   components: {
     Buttons,
     FormHead,
+    Msg,
   },
   data() {
     return {

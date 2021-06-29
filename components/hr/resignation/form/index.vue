@@ -16,6 +16,8 @@
     <hr />
     <Reason :form_event="form_event" />
     <Buttons />
+
+    <Msg />
   </form>
 </template>
 
@@ -29,10 +31,11 @@ import Personal from '~/components/hr/resignation/form/Personal'
 import CompanyInfo from '~/components/hr/resignation/form/CompanyInfo'
 import Reason from '~/components/hr/resignation/form/Reason'
 import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
+import Msg from '~/components/baseForms/hrForms/msg'
 
 export default {
   name: 'ResignationForm',
-  components: { FormHead, Personal, CompanyInfo, Reason, Buttons },
+  components: { FormHead, Personal, CompanyInfo, Reason, Buttons, Msg },
 
   data() {
     return { form_event: false }

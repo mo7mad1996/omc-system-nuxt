@@ -81,13 +81,30 @@ const start = {
     security_inquiry: false, // فيش
     form111: false, // نموزج 111
   },
+  msg: { active: false, status: false, text: '' },
 }
 
 const state = () => start
 
-const getters = {}
+const getters = {
+  msg: (state) => state.msg,
+}
 
-let mutations = {}
+let mutations = {
+  // to reset the data
+  reset(state) {
+    state.personData = start.personData
+  },
+  setMsgActive(state, active) {
+    state.msg.active = active
+  },
+  setMsgStatus(state, status) {
+    state.msg.status = status
+  },
+  setMsgTest(state, text) {
+    state.msg.text = text
+  },
+}
 
 for (let i in start.personData) {
   mutations[i + 'Mutation'] = function (state, data) {
@@ -95,26 +112,27 @@ for (let i in start.personData) {
   }
 }
 
-// to reset the data
-mutations.reset = function (state) {
-  state.personData = start.personData
-}
-
 const actions = {
   addWorkers({ commit, state }) {
     this.$axios
       .$post('workers', state.personData)
-      .then(() => commit('reset'))
-      .catch((err) => console.log('an Error', err))
-      .finally(() => {})
+      .then(() => {
+        commit('reset')
+        commit('setMsgActive', true)
+        commit('setMsgTest', 'تم الاضافه')
+        commit('setMsgStatus', true)
+      })
+      .catch((err) => {
+        commit('setMsgActive', true)
+        commit('setMsgStatus', false)
+        commit('setMsgTest', 'حدث خطأ ما')
+        console.log('an Error', err)
+      })
+      .finally(() => {
+        setTimeout(() => commit('setMsgActive', false), 3000)
+      })
   },
 }
 
-const store = {
-  state,
-  getters,
-  mutations,
-  actions,
-}
-
+const store = { state, getters, mutations, actions }
 export default store

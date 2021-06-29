@@ -7,6 +7,8 @@
     <FormMain :form_event="form_event" />
 
     <Buttons />
+
+    <Msg />
   </form>
 </template>
 
@@ -18,19 +20,20 @@ import { mapActions } from 'vuex'
 import FormHead from '~/components/baseForms/addWrkersForm/formHead'
 import FormMain from '~/components/hr/exitPermit/form/main/index'
 import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
+import Msg from '~/components/baseForms/hrForms/msg'
 
 export default {
   name: 'ExitPermitForm',
-  components: { FormHead, FormMain, Buttons },
+  components: { FormHead, FormMain, Buttons, Msg },
 
   data() {
     return { form_event: false }
   },
 
   methods: {
-    ...mapActions('hr', ['addexitpermit']),
+    ...mapActions('hr', ['addExitpermit']),
     submit() {
-      this.addexitpermit()
+      this.addExitpermit()
       this.reset()
     },
     reset() {

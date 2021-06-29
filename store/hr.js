@@ -1,60 +1,63 @@
 let data = {
-  // الاجازه
-  vacationRequest: {
-    vacation_date: '', // تاريخ الاجازه
-    Person_name: '', // اسم الشخص
-    factory: '', // اسم المصنع
-    branch: '', // منطقة
-    job: '', // وظيفة الموظف
-    start_date: '', // تبدأ من
-    end_date: '', // تنتهي في
-    vacation_reason: '', // سبب الاجازه
-  },
-  // مخالفه اداريه
-  infraction: {
-    person_name: '', // اسم المخالف
-    job: '', // الوظيفه
-    branch: '', // الفرع
-    infraction_type: '', // نوع المخالفه
-    infraction_reason: '', // سبب المخالفه
-    by_day: 0, // الخصم باليوم
-    by_money: 0, // الخصم بالمال
-  },
+  forms: {
+    // الاجازه
+    VacationRequest: {
+      vacation_date: '', // تاريخ الاجازه
+      Person_name: '', // اسم الشخص
+      factory: '', // اسم المصنع
+      branch: '', // منطقة
+      job: '', // وظيفة الموظف
+      start_date: '', // تبدأ من
+      end_date: '', // تنتهي في
+      vacation_reason: '', // سبب الاجازه
+    },
+    // مخالفه اداريه
+    Infraction: {
+      person_name: '', // اسم المخالف
+      job: '', // الوظيفه
+      branch: '', // الفرع
+      infraction_type: '', // نوع المخالفه
+      infraction_reason: '', // سبب المخالفه
+      by_day: 0, // الخصم باليوم
+      by_money: 0, // الخصم بالمال
+    },
 
-  // تصريح خروج
-  exitpermit: {
-    person_name: '', // اسم الشخص
-    administration: '', // إدارة
-    time: '', // وقت
-    reason: '', // سبب
-  },
+    // تصريح خروج
+    Exitpermit: {
+      person_name: '', // اسم الشخص
+      administration: '', // إدارة
+      time: '', // وقت
+      reason: '', // سبب
+    },
 
-  // إستقاله
-  resignation: {
-    job: '',
-    factory_name: '',
-    factory_place: '',
-    person_name: '',
-    id_card: '',
-    city: '',
-    resignation_reason: '',
+    // إستقاله
+    Resignation: {
+      job: '',
+      factory_name: '',
+      factory_place: '',
+      person_name: '',
+      id_card: '',
+      city: '',
+      resignation_reason: '',
+    },
   },
+  msg: { Active: false, Status: false, Text: '' },
 }
 
 const state = () => data
 
-const getters = {}
+const getters = { msg: (state) => state.msg }
 
 const mutations = {
-  reset({ state }) {
-    state = data
+  reset(state) {
+    state.forms = data.forms
   },
 }
 const actions = {}
 
-for (let b in data) {
+for (let b in data.forms) {
   // mutations
-  for (let d in data[b]) {
+  for (let d in data.forms[b]) {
     mutations[b + d + 'Mutation'] = function (state, c) {
       state[b][d] = c
     }
@@ -64,12 +67,31 @@ for (let b in data) {
   actions['add' + b] = function ({ commit, state }) {
     let subLink = b + 's'
     this.$axios
-      .$post(subLink, state[b])
+      .$post(subLink, state.forms[b])
       .then(() => {
+        commit('setMsgActive', true)
+        commit('setMsgStatus', true)
+        commit('setMsgText', 'تم بنجاح')
         commit('reset')
       })
-      .catch((err) => console.log(err))
-      .finally()
+      .catch((err) => {
+        commit('setMsgActive', true)
+        commit('setMsgStatus', false)
+        commit('setMsgText', 'حدث خطأ')
+        console.log(err)
+      })
+      .finally(
+        setTimeout(function () {
+          commit('setMsgActive', false)
+        }, 3000)
+      )
+  }
+}
+
+// msg mutations
+for (let b in data.msg) {
+  mutations['setMsg' + b] = function (state, v) {
+    state.msg[b] = v
   }
 }
 

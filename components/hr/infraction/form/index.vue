@@ -7,6 +7,8 @@
     <hr />
 
     <Buttons />
+
+    <Msg />
   </form>
 </template>
 
@@ -18,17 +20,18 @@ import { mapActions } from 'vuex'
 import FormHead from '~/components/baseForms/addWrkersForm/formHead'
 import Content from '~/components/hr/infraction/form/content'
 import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
+import Msg from '~/components/baseForms/hrForms/msg'
 
 export default {
-  components: { FormHead, Content, Buttons },
+  components: { FormHead, Content, Buttons, Msg },
   name: 'InfractionForm',
   data() {
     return { form_event: false }
   },
   methods: {
-    ...mapActions('hr', ['addinfraction']),
+    ...mapActions('hr', ['addInfraction']),
     submit() {
-      this.addinfraction()
+      this.addInfraction()
       this.reset()
     },
     reset() {
