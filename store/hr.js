@@ -11,6 +11,7 @@ let data = {
       end_date: '', // تنتهي في
       vacation_reason: '', // سبب الاجازه
     },
+
     // مخالفه اداريه
     Infraction: {
       person_name: '', // اسم المخالف
@@ -40,6 +41,15 @@ let data = {
       city: '',
       resignation_reason: '',
     },
+
+    // إخلاء طرف
+    GetFree: {
+      date: '',
+      person_name: '',
+      branch: '',
+      city: '',
+      job: '',
+    },
   },
   msg: { Active: false, Status: false, Text: '' },
 }
@@ -59,7 +69,7 @@ for (let b in data.forms) {
   // mutations
   for (let d in data.forms[b]) {
     mutations[b + d + 'Mutation'] = function (state, c) {
-      state[b][d] = c
+      state.forms[b][d] = c
     }
   }
 

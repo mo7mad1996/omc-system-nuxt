@@ -32,7 +32,7 @@ var data = { resignation_reason: '' },
   Mutations = []
 
 for (let d in data) {
-  var mutationName = 'resignation' + d + 'Mutation'
+  let mutationName = 'Resignation' + d + 'Mutation'
   Mutations.push(mutationName)
 
   watch[d] = function () {

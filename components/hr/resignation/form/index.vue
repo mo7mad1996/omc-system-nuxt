@@ -40,9 +40,6 @@ export default {
   data() {
     return { form_event: false }
   },
-  data() {
-    return { form_event: false }
-  },
 
   methods: {
     ...mapActions('hr', ['addResignation']),

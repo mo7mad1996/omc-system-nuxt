@@ -80,6 +80,10 @@ const start = {
     business_certificate: false, // كعب عمل
     security_inquiry: false, // فيش
     form111: false, // نموزج 111
+
+    // رشح احد اصدقائك
+    RecommendName: '',
+    RecommendPhone: '',
   },
   msg: { active: false, status: false, text: '' },
 }

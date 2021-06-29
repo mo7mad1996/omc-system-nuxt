@@ -60,11 +60,10 @@ var data = { insurance: false, resignation_date: '', resignation_reason: '' },
   Mutations = []
 
 for (let d in data) {
-  const mutationName = d + 'Mutation'
+  let mutationName = d + 'Mutation'
   Mutations.push(mutationName)
 
   watch[d] = function () {
-    console.log(d.padStart(60, '-'))
     this[mutationName](this[d])
   }
 }

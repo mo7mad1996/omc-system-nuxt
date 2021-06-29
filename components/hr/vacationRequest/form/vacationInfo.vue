@@ -35,7 +35,7 @@ const data = { start_date: '', end_date: '', vacation_reason: '' },
   Mutations = []
 
 for (let d in data) {
-  var mutationName = 'vacationRequest' + d + 'Mutation'
+  let mutationName = 'VacationRequest' + d + 'Mutation'
   Mutations.push(mutationName)
 
   watch[d] = function () {
