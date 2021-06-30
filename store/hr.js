@@ -51,6 +51,9 @@ let data = {
       job: '',
     },
   },
+
+  // change values when form submit
+  // to make notfications
   msg: { Active: false, Status: false, Text: '' },
 }
 

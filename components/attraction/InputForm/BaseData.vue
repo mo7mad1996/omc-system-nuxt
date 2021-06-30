@@ -17,7 +17,7 @@
         <select id="company_type" v-model="company_type" ref="a">
           <option v-for="t in typies" :key="t" :value="t" v-text="t" />
         </select>
-        <input type="text" class="d-none" />
+        <input type="text" class="d-none" v-model="company_type" />
       </div>
     </div>
   </fieldset>
@@ -27,38 +27,50 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    init_date: '',
+    cumpany_name: '',
+    company_type: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  let mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
+watch.company_type = function () {
+  if (this.company_type == 'اخرى') {
+    this.$refs.a.classList.toggle('d-none')
+    this.$refs.a.nextElementSibling.classList.toggle('d-none')
+    this.$refs.a.nextElementSibling.focus()
+
+    this.company_type = ''
+  }
+  this.company_typeMutation(this.company_type)
+}
+
 export default {
   name: 'BaseData',
-  props: ['typies'],
+  props: ['typies', 'form_event'],
   data() {
-    return {
-      init_date: '',
-      cumpany_name: '',
-      company_type: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    company_type() {
-      if (this.company_type == 'اخرى') {
-        this.$refs.a.classList.toggle('d-none')
-        this.$refs.a.nextElementSibling.classList.toggle('d-none')
-        this.$refs.a.nextElementSibling.focus()
-
-        this.company_type = ''
-      }
-      this.company_typeMutation(this.company_type)
-    },
-    init_date() {
-      this.init_dateMutation(this.init_date)
-    },
-    cumpany_name() {
-      this.cumpany_nameMutation(this.cumpany_name)
-    },
-  },
-  methods: mapMutations('customers', [
-    'cumpany_nameMutation',
-    'init_dateMutation',
-    'company_typeMutation',
-  ]),
+  watch,
+  methods: mapMutations('customers', Mutations),
 }
 </script>

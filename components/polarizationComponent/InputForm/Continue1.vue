@@ -73,7 +73,6 @@ for (let d in data) {
   Mutations.push(mutationName)
 
   watch[d] = function () {
-    console.log(d.padStart(60, '-'))
     this[mutationName](this[d])
   }
 }

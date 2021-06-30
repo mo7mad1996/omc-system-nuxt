@@ -45,55 +45,62 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    responsible_name: '',
+    phone: '',
+    email: '',
+    job: '',
+    service_type: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  let mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
+watch.job = function () {
+  if (this.job == 'اخرى') {
+    this.$refs.j.classList.toggle('d-none')
+    this.$refs.j.nextElementSibling.classList.toggle('d-none')
+    this.$refs.j.nextElementSibling.focus()
+    this.job = ''
+  }
+
+  this.jobMutation(this.job)
+}
+watch.service_type = function () {
+  if (this.service_type == 'اخرى') {
+    this.$refs.s.classList.toggle('d-none')
+    this.$refs.s.nextElementSibling.classList.toggle('d-none')
+    this.$refs.s.nextElementSibling.focus()
+    this.service_type = ''
+  }
+
+  this.service_typeMutation(this.service_type)
+}
+
 export default {
   name: 'Responsible',
-  props: ['service', 'jobs'],
+  props: ['form_event', 'service', 'jobs'],
   data() {
-    return {
-      responsible_name: '',
-      phone: '',
-      email: '',
-      job: '',
-      service_type: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    job() {
-      if (this.job == 'اخرى') {
-        this.$refs.j.classList.toggle('d-none')
-        this.$refs.j.nextElementSibling.classList.toggle('d-none')
-        this.$refs.j.nextElementSibling.focus()
-        this.job = ''
-      }
-
-      this.jobMutation(this.job)
-    },
-    service_type() {
-      if (this.service_type == 'اخرى') {
-        this.$refs.s.classList.toggle('d-none')
-        this.$refs.s.nextElementSibling.classList.toggle('d-none')
-        this.$refs.s.nextElementSibling.focus()
-        this.service_type = ''
-      }
-
-      this.service_typeMutation(this.service_type)
-    },
-    responsible_name() {
-      this.responsible_nameMutation(this.responsible_name)
-    },
-    phone() {
-      this.phoneMutation(this.phone)
-    },
-    email() {
-      this.emailMutation(this.email)
-    },
-  },
-  methods: mapMutations('customers', [
-    'responsible_nameMutation',
-    'phoneMutation',
-    'emailMutation',
-    'jobMutation',
-    'service_typeMutation',
-  ]),
+  watch,
+  methods: mapMutations('customers', Mutations),
 }
 </script>

@@ -20,22 +20,38 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    LastCallDate: '',
+    nots: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  let mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Nots',
+  props: ['form_event'],
   data() {
-    return {
-      LastCallDate: '',
-      nots: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    LastCallDate() {
-      this.LastCallDateMutation(this.LastCallDate)
-    },
-    nots() {
-      this.notsMutation(this.nots)
-    },
-  },
-  methods: mapMutations('customers', ['LastCallDateMutation', 'notsMutation']),
+  watch,
+  methods: mapMutations('customers', Mutations),
 }
 </script>

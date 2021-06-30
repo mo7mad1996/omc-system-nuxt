@@ -42,8 +42,11 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
+    // on localhost
     // json server host [  my ip + json-server::port  ]
     baseURL: 'http://localhost:3000/',
+    // online
+    // baseURL: 'https://my-json-server.typicode.com/mo7mad1996/omc-system-nuxt',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

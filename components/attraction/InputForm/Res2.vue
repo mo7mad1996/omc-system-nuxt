@@ -51,35 +51,40 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    res2_sent: false,
+    res2_vist: false,
+    res2_reject: false,
+    res2_accept: false,
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  let mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  watch[d] = function () {
+    this[mutationName](this[d])
+  }
+}
+
 export default {
   name: 'Res2',
+  props: ['form_event'],
   data() {
-    return {
-      res2_sent: false,
-      res2_vist: false,
-      res2_reject: false,
-      res2_accept: false,
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    res2_sent() {
-      this.res2_sentMutation(this.res2_sent)
-    },
-    res2_vist() {
-      this.res2_vistMutation(this.res2_vist)
-    },
-    res2_reject() {
-      this.res2_rejectMutation(this.res2_reject)
-    },
-    res2_accept() {
-      this.res2_acceptMutation(this.res2_accept)
-    },
-  },
-  methods: mapMutations('customers', [
-    'res2_sentMutation',
-    'res2_vistMutation',
-    'res2_rejectMutation',
-    'res2_acceptMutation',
-  ]),
+  watch,
+  methods: mapMutations('customers', Mutations),
 }
 </script>

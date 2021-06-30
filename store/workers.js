@@ -105,7 +105,7 @@ let mutations = {
   setMsgStatus(state, status) {
     state.msg.status = status
   },
-  setMsgTest(state, text) {
+  setMsgText(state, text) {
     state.msg.text = text
   },
 }
@@ -123,13 +123,13 @@ const actions = {
       .then(() => {
         commit('reset')
         commit('setMsgActive', true)
-        commit('setMsgTest', 'تم الاضافه')
+        commit('setMsgText', 'تم الاضافه')
         commit('setMsgStatus', true)
       })
       .catch((err) => {
         commit('setMsgActive', true)
         commit('setMsgStatus', false)
-        commit('setMsgTest', 'حدث خطأ ما')
+        commit('setMsgText', 'حدث خطأ ما')
         console.log('an Error', err)
       })
       .finally(() => {

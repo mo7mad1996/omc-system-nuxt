@@ -1,4 +1,4 @@
-const start = {
+const data = {
   companyData: {
     city: '',
     area: '',
@@ -21,34 +21,54 @@ const start = {
     cumpany_name: '',
     company_type: '',
   },
+  msg: { Active: false, Status: false, Text: '' },
 }
 
-const state = () => start
+const state = () => data
 
-const getters = {}
+const getters = { msg: (state) => state.msg }
 
 let mutations = {}
-for (let i in start.personData) {
+
+// the mutations
+
+// companyData mutations
+for (let i in data.companyData) {
   mutations[i + 'Mutation'] = function (state, data) {
     state.companyData[i] = data
   }
 }
 
+// msg mutations
+for (let b in data.msg) {
+  mutations['setMsg' + b] = function (state, v) {
+    state.msg[b] = v
+  }
+}
+
 // to reset the data
 mutations.reset = function (state) {
-  state.companyData = start.companyData
+  state.companyData = data.companyData
 }
 
 const actions = {
-  addCustomer({ state }, form) {
+  addCustomer({ state, commit }) {
     this.$axios
-      .$post('customers', state)
-      .then((res) => {
-        console.log(res)
+      .$post('customers', state.companyData)
+      .then(() => {
+        commit('reset')
+        commit('setMsgActive', true)
+        commit('setMsgText', 'تم الاضافه')
+        commit('setMsgStatus', true)
+      })
+      .catch((err) => {
+        commit('setMsgActive', true)
+        commit('setMsgStatus', false)
+        commit('setMsgText', 'حدث خطأ ما')
+        console.log('an Error', err)
       })
       .finally(() => {
-        commit('Reset')
-        form.submit()
+        setTimeout(() => commit('setMsgActive', false), 3000)
       })
   },
 }

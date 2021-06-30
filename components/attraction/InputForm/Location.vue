@@ -27,37 +27,58 @@
 // vuex
 import { mapMutations } from 'vuex'
 
+/*****************************
+ *   pure Js
+ ****************************/
+
+// to reset the Form when form Actions
+var data = {
+    city: '',
+    area: '',
+  },
+  watch = {
+    form_event() {
+      Object.assign(this, data)
+    },
+  },
+  Mutations = []
+
+for (let d in data) {
+  let mutationName = d + 'Mutation'
+  Mutations.push(mutationName)
+
+  // watch[d] = function () {
+  //   this[mutationName](this[d])
+  // }
+}
+watch.city = function () {
+  if (this.city == 'اخرى') {
+    this.$refs.a.classList.toggle('d-none')
+    this.$refs.a.nextElementSibling.classList.toggle('d-none')
+    this.$refs.a.nextElementSibling.focus()
+    this.city = ''
+  }
+
+  this.cityMutation(this.city)
+}
+watch.area = function () {
+  if (this.area == 'اخرى') {
+    this.$refs.b.classList.toggle('d-none')
+    this.$refs.b.nextElementSibling.classList.toggle('d-none')
+    this.$refs.b.nextElementSibling.focus()
+    this.area = ''
+  }
+
+  this.areaMutation(this.area)
+}
+
 export default {
   name: 'Location',
-  props: ['zones', 'cities'],
+  props: ['zones', 'cities', 'form_event'],
   data() {
-    return {
-      city: '',
-      area: '',
-    }
+    return Object.assign({}, data)
   },
-  watch: {
-    city() {
-      if (this.city == 'اخرى') {
-        this.$refs.a.classList.toggle('d-none')
-        this.$refs.a.nextElementSibling.classList.toggle('d-none')
-        this.$refs.a.nextElementSibling.focus()
-        this.city = ''
-      }
-
-      this.cityMutation(this.city)
-    },
-    area() {
-      if (this.area == 'اخرى') {
-        this.$refs.b.classList.toggle('d-none')
-        this.$refs.b.nextElementSibling.classList.toggle('d-none')
-        this.$refs.b.nextElementSibling.focus()
-        this.area = ''
-      }
-
-      this.areaMutation(this.area)
-    },
-  },
-  methods: mapMutations('customers', ['cityMutation', 'areaMutation']),
+  watch,
+  methods: mapMutations('customers', Mutations),
 }
 </script>
