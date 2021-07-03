@@ -50,6 +50,11 @@ let data = {
       city: '',
       job: '',
     },
+
+    Attending: {
+      list: [],
+      date: new Date().toDateString(),
+    },
   },
 
   // change values when form submit
@@ -59,7 +64,9 @@ let data = {
 
 const state = () => data
 
-const getters = { msg: (state) => state.msg }
+const getters = {
+  msg: (state) => state.msg,
+}
 
 const mutations = {
   reset(state) {
@@ -106,6 +113,21 @@ for (let b in data.msg) {
   mutations['setMsg' + b] = function (state, v) {
     state.msg[b] = v
   }
+}
+
+mutations.updateAttendingList = function (state, list) {
+  state.forms.Attending.list = Object.assign([], list)
+}
+actions.updateAttendingList = function ({ commit, state }, list) {
+  commit('updateAttendingList', list)
+
+  this.$axios
+    .$get('Attendings?date=' + state.forms.Attending.date)
+    .then((res) => {
+      this.$axios.$patch('Attendings/' + res[0].id, {
+        list: state.forms.Attending.list,
+      })
+    })
 }
 
 const store = { state, getters, mutations, actions }

@@ -3,11 +3,8 @@
     قطاع الHR
     <ul class="nested-menu">
       <li v-for="link in links" :key="link.title">
-        <nuxt-link :to="link.to" />
+        <nuxt-link :to="link.to" v-text="link.title" />
       </li>
-      <li><nuxt-link to="/hr/"></nuxt-link></li>
-      <li><nuxt-link to="/hr/"></nuxt-link></li>
-      <li><nuxt-link to="/hr/"></nuxt-link></li>
     </ul>
   </div>
 </template>
