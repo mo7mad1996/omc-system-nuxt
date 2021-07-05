@@ -1,5 +1,5 @@
 <template>
-  <footer class="container-fluid">
+  <footer class="container-fluid noPrint">
     <div class="row text-center">
       <div class="col-3">مرحباً: جمعه ونيس</div>
       <div class="col-3"></div>

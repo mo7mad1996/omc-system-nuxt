@@ -2,6 +2,7 @@ export default {
   // server
   server: {
     port: 1996,
+    host: '0.0.0.0',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -23,6 +24,7 @@ export default {
     '~/assets/css/bootstrap.min.css',
     '~/assets/css/reset.css',
     '~/assets/scss/main.scss',
+    '~/assets/css/print.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

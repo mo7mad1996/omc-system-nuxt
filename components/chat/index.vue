@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-section">
+  <div class="chat-section noPrint">
     <div v-if="chatOpen" class="chat-container">
       <h4 class="text-center">أهلاً بك في عمال مصر</h4>
     </div>

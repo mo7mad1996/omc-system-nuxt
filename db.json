@@ -7,5 +7,27 @@
   "Infractions": [],
   "Exitpermits": [],
   "GetFrees": [],
-  "Attendings": []
+  "Attendings": [
+    {
+      "id": 1,
+      "date": "Sat Jul 03 2021",
+      "list": [
+        {
+          "name": "جمعه حسين",
+          "start": "13:38",
+          "end": "02:38"
+        },
+        {
+          "name": "جمعه ونيس",
+          "start": "",
+          "end": ""
+        },
+        {
+          "name": "",
+          "start": "",
+          "end": ""
+        }
+      ]
+    }
+  ]
 }

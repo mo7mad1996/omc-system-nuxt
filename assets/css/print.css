@@ -1,0 +1,28 @@
+@media print {
+  .noPrint {
+    display: none;
+  }
+
+  .BG {
+    background: none !important;
+  }
+  .addForm {
+    background-color: white !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+  .addForm * {
+    color: #000;
+  }
+
+  select,
+  input {
+    border-color: transparent !important;
+    color: black !important;
+    background-color: transparent !important;
+  }
+
+  .buttons {
+    display: none;
+  }
+}

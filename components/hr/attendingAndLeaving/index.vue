@@ -21,16 +21,15 @@
       </div>
     </header>
 
-    <hr />
-
+    <hr class="noPrint" />
     <ul class="list">
-      <li class="row">
+      <li class="row noPrint">
         <div class="col-5">
           <input placeholder="إسم الموظف" v-model="person.name" />
         </div>
         <div class="col-3"><input type="time" v-model="person.start" /></div>
         <div class="col-3"><input type="time" v-model="person.end" /></div>
-        <div class="col-1"><input type="submit" value="إضافه" /></div>
+        <div class="col-1 noPrint"><input type="submit" value="إضافه" /></div>
       </li>
       <hr />
       <li class="row">
@@ -44,7 +43,7 @@
         <div class="col-5">{{ item.name }}</div>
         <div class="col-3">{{ item.start }}</div>
         <div class="col-3">{{ item.end }}</div>
-        <div class="col-1">
+        <div class="col-1 noPrint">
           <input @click="edit(n)" type="button" value="تعديل" />
         </div>
       </li>

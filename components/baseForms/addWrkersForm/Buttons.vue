@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons">
+  <div class="buttons noPrint">
     <button type="submit">إضافه</button>
     <button type="reset">إلغاء</button>
   </div>
