@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .header {
   position: relative;
-  z-index: 1;
+  z-index: 4;
 }
 
 header {

@@ -1,5 +1,14 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "admin",
+      "code": 0,
+      "permission": "chairman",
+      "img": null
+    }
+  ],
   "customers": [],
   "workers": [],
   "VacationRequests": [],
@@ -7,27 +16,5 @@
   "Infractions": [],
   "Exitpermits": [],
   "GetFrees": [],
-  "Attendings": [
-    {
-      "id": 1,
-      "date": "Sat Jul 03 2021",
-      "list": [
-        {
-          "name": "جمعه حسين",
-          "start": "13:38",
-          "end": "02:38"
-        },
-        {
-          "name": "جمعه ونيس",
-          "start": "",
-          "end": ""
-        },
-        {
-          "name": "",
-          "start": "",
-          "end": ""
-        }
-      ]
-    }
-  ]
+  "Attendings": []
 }

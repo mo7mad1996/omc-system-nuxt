@@ -51,9 +51,10 @@ let data = {
       job: '',
     },
 
+    // الحضور والانصراف
     Attending: {
-      list: [],
-      date: new Date().toDateString(),
+      list: [], // القائمه
+      date: new Date().toDateString(), // التاريخ
     },
   },
 
