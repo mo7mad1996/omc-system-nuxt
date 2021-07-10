@@ -7,14 +7,15 @@
           على جميع العاملين بمجموعه عمال مصر دوام التواصل المستمر بين طاقم
           الإداره ومصنع OMC للصناعات المتخصصه
         </span>
-        <span
-          >Two Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+        <span>
+          Two Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
           fugiat voluptatum eligendi incidunt ea fuga voluptatem tenetur officia
           eveniet? Suscipit ipsam est laudantium a ex debitis animi odit
-          exercitationem? Aspernatur!</span
-        >
+          exercitationem? Aspernatur!
+        </span>
       </div>
     </marquee>
+
     <div class="buttons">
       <button @click="toggleForm">
         دخول
@@ -26,7 +27,7 @@
       </button>
     </div>
 
-    <div class="loginForm" v-if="open_login_form" @click="toggleForm">
+    <div class="loginForm" @click="toggleForm" v-if="open_login_form">
       <LoginForm @toggleForm="toggleForm" />
     </div>
   </div>
@@ -60,8 +61,8 @@ export default {
 
 <style scoped lang="scss">
 .marquee {
-  background-color: #251843;
-  color: white;
+  background-color: #fac40a;
+  color: black;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -69,6 +70,7 @@ export default {
 
   marquee {
     position: relative;
+    font-weight: bold;
 
     &::before,
     &::after {
@@ -78,14 +80,14 @@ export default {
       position: absolute;
       top: 0;
       left: -2px;
-      background-image: linear-gradient(to left, transparent, #251843);
+      background-image: linear-gradient(to left, transparent, #fac40a);
       z-index: 2;
     }
 
     &::before {
       left: auto;
       right: -2px;
-      background-image: linear-gradient(to right, transparent, #251843);
+      background-image: linear-gradient(to right, transparent, #fac40a);
     }
   }
 }
@@ -93,11 +95,12 @@ export default {
 .buttons button {
   padding: 5px 10px;
   margin: 0 5px;
-  background: #943534;
+  background: #cd2121;
   border: none;
   color: white;
   border-radius: 5px;
   box-shadow: inset 0 -2px 5px #0008;
+  font-weight: bold;
 }
 
 .buttons button img {

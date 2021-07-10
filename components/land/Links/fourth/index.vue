@@ -1,30 +1,13 @@
 <template>
-  <div class="col-3">
-    <div class="a">
-      القطاع التصنيعي
-
-      <ul class="nested-menu">
-        <li><nuxt-link to="/"> بيان طلب تصنيع منتجات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان تسليم منتجات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب خامات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب مستلزمات انتاج</nuxt-link></li>
-        <li><nuxt-link to="/">بيان حالة منتج</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب مشتريات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان تسليم مشتريات</nuxt-link></li>
-        <li><nuxt-link to="/">تصريح خروج منتجات</nuxt-link></li>
-      </ul>
-    </div>
-    <div class="a">
-      القطاع الإعلامي
-
-      <ul class="nested-menu">
-        <li><nuxt-link to="/"> تسجيل مصادر صحفيه</nuxt-link></li>
-        <li><nuxt-link to="/"> تقرير عمل يومي</nuxt-link></li>
-        <li><nuxt-link to="/"> تقرير خبر للنشر</nuxt-link></li>
-        <li><nuxt-link to="/"> طلب اعلان</nuxt-link></li>
-      </ul>
-    </div>
-    <nuxt-link to="/">تقارير عامة</nuxt-link>
+  <div class="col">
+    <img src="/header/brand.png" />
+    <h1>
+      ERP
+      <br />
+      SYSTEM
+      <br />
+      OMAL MASR
+    </h1>
   </div>
 </template>
 
@@ -33,3 +16,28 @@ export default {
   name: 'Fourth',
 }
 </script>
+
+<style lang="scss" scoped>
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+
+  img {
+    width: 100%;
+    opacity: 0.12;
+    scale: 1.2;
+    user-select: none;
+    pointer-events: none;
+  }
+  h1 {
+    opacity: 0.3;
+    user-select: none;
+    pointer-events: none;
+    font-family: Mohammad;
+  }
+}
+</style>

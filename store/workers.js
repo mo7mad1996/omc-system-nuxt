@@ -79,7 +79,7 @@ const start = {
     photos: false, // الصور الشخصيه
     business_certificate: false, // كعب عمل
     security_inquiry: false, // فيش
-    form111: false, // نموزج 111
+    form111: false, // نموذج 111
 
     // رشح احد اصدقائك
     RecommendName: '',

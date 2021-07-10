@@ -1,16 +1,16 @@
 <template>
   <!-- form Head -->
-  <section class="row text-center formHead">
-    <div class="col-4">
+  <section class="head text-center formHead">
+    <div>
       <div>
         <h2>مؤسسة عمال مصر</h2>
         <p>لإدارة وتشغيل المنشئات الصناعيه وإدارة المشروعات</p>
       </div>
     </div>
-    <div class="col-4">
+    <div>
       <h2 class="title">{{ formTitle }}</h2>
     </div>
-    <div class="col-4">
+    <div class="conntent">
       <div class="logo">
         <img src="/header/logo.png" alt="" />
       </div>
@@ -26,24 +26,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.formHead {
+.head {
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
 
-  .col-4 {
-    display: grid;
-    place-items: center;
+  .title {
+    padding: 3px 10px;
+    background: rgba(103, 190, 212, 0.26);
+  }
 
-    .title {
-      padding: 3px 10px;
-      background: rgba(103, 190, 212, 0.26);
+  .conntent {
+    padding: 5px;
+    border: 5px solid rgb(255, 0, 0);
+    border-radius: 50%;
+    background: white;
+
+    @media print {
+      border-color: black;
     }
 
-    .logo img {
-      width: 200px;
-      max-width: 100%;
-      margin: auto;
-      background: #fefefe;
-      padding: 10px;
+    .logo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid black;
+
+      @media print {
+        border-color: black;
+      }
+
+      img {
+        width: 140px;
+        height: 140px;
+        display: block;
+        margin: auto;
+        object-fit: contain;
+      }
     }
   }
 }

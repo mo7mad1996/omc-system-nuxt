@@ -1,21 +1,15 @@
 <template>
-  <form @click.stop @submit.prevent="submit">
-    <header class="text-center">
+  <form @submit.prevent="submit" @click.stop>
+    <div class="text-center">
       بسم الله الرحمن الرحيم
       <br />
       تسجيل دخول
-    </header>
+    </div>
 
     <div class="input-group">
       <div class="input-felid">
         <label for="username">اسم المستخدم</label>
-        <input
-          autocomplete="off"
-          autofocus
-          id="username"
-          v-model="user.name"
-          required
-        />
+        <input autocomplete="off" id="username" v-model="user.name" required />
       </div>
       <div class="input-felid">
         <label for="password">كلمه المرور</label>
@@ -56,6 +50,9 @@ export default {
   },
   methods: {
     ...mapMutations('user', ['setUser']),
+    stop(e) {
+      e.stopPropagation()
+    },
 
     submit() {
       this.$axios

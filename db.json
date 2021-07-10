@@ -7,6 +7,37 @@
       "code": 0,
       "permission": "chairman",
       "img": null
+    },
+    {
+      "id": 2,
+      "name": "محمد",
+      "password": "asd",
+      "code": "1",
+      "permission": "attraction_employee",
+      "img": null
+    },
+    {
+      "name": "احمد",
+      "password": "333",
+      "code": "3",
+      "permission": "hr_manager",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "a",
+      "password": "a",
+      "code": "1",
+      "permission": "polarization_employee",
+      "img": null
+    },
+    {
+      "id": 5,
+      "name": "s",
+      "password": "s",
+      "code": "2",
+      "permission": "attraction_manager",
+      "img": null
     }
   ],
   "customers": [],

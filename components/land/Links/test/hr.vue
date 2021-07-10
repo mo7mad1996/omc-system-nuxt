@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       links: [
-        { title: 'قسم نموزج تقديم ملئ بيانات', to: '/hr/submission-form' },
+        { title: 'قسم نموذج تقديم ملئ بيانات', to: '/hr/submission-form' },
         { title: 'قسم التعينات', to: '/hr/appointments' },
         { title: 'قسم الاستقالات', to: '/hr/resignation' },
         { title: 'قسم الاجازات', to: '/hr/vacationRequest' },

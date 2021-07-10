@@ -2,11 +2,13 @@
   <div>
     <div class="flex">
       <HeaderComponent />
+
       <div class="BG">
         <Nuxt />
 
         <Chat />
       </div>
+
       <FooterComponent />
     </div>
   </div>
@@ -23,8 +25,9 @@ import Chat from '@/components/chat/index'
 
 export default {
   methods: mapMutations('user', ['setUser']),
+
   beforeMount() {
-    this.setUser(JSON.parse(sessionStorage.getItem('user')))
+    this.setUser(JSON.parse(sessionStorage.getItem('user')) || {})
   },
   components: {
     HeaderComponent,
@@ -39,10 +42,9 @@ export default {
 
 <style scoped>
 .BG {
-  background-image: url('/baseBG.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
 }
 .flex {

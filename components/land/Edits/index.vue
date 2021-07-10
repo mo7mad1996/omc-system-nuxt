@@ -4,43 +4,18 @@
       <img src="/home/users/1.jpg" />
     </div>
     <ul class="links">
-      <li>
-        <nuxt-link to="/">
+      <li v-for="(link, n) in list" :key="n">
+        <nuxt-link
+          :to="
+            user && link.openOn.filter((el) => el == user.permission).length
+              ? link.to
+              : '/'
+          "
+          :title="link.title"
+        >
           <figure>
-            <img src="/home/settings/user.png" alt="Trulli" />
-            <figcaption>إضافة مستحدمين</figcaption>
-          </figure>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/">
-          <figure>
-            <img src="/home/settings/report.png" alt="تقرير" />
-            <figcaption>تقرير اسماء الحسابات</figcaption>
-          </figure>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/">
-          <figure>
-            <img src="/home/settings/lock.png" alt="كلمه المرور" />
-            <figcaption>تغير كلمه السر</figcaption>
-          </figure>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/">
-          <figure>
-            <img src="/home/settings/database.png" alt="تفريغ البرنامج" />
-            <figcaption>تفريغ البرنامج</figcaption>
-          </figure>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/">
-          <figure>
-            <img src="/home/settings/info.png" alt="عن البرنامج" />
-            <figcaption>عن البرنامج</figcaption>
+            <img :src="`/home/settings/${link.img}.png`" :alt="link.title" />
+            <figcaption v-text="link.title" />
           </figure>
         </nuxt-link>
       </li>
@@ -49,8 +24,48 @@
 </template>
 
 <script>
+// vuex
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Edits',
+
+  computed: mapGetters('user', ['user']),
+
+  data: () => ({
+    list: [
+      {
+        openOn: ['chairman'],
+        to: '/add-user',
+        title: 'إضافة مستحدمين',
+        img: 'user',
+      },
+      {
+        openOn: ['chairman'],
+        to: '/',
+        title: 'تقرير اسماء الحسابات',
+        img: 'report',
+      },
+      {
+        openOn: ['chairman'],
+        to: '/',
+        title: 'تفريغ البرنامج',
+        img: 'lock',
+      },
+      {
+        openOn: ['chairman'],
+        to: '/',
+        title: 'إضافة مستحدمين',
+        img: 'database',
+      },
+      {
+        openOn: ['chairman'],
+        to: '/',
+        title: 'عن البرنامج',
+        img: 'info',
+      },
+    ],
+  }),
 }
 </script>
 
@@ -72,10 +87,11 @@ export default {
   }
   figure {
     figcaption {
-      background: #3d6dc7;
-      box-shadow: inset 0 -4px 4px #333;
+      background: white;
+      box-shadow: inset 0 -4px 4px #e9a526;
       padding: 5px 10px;
       border-radius: 5px;
+      font-weight: bold;
     }
     img {
       height: 40px;

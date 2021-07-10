@@ -1,5 +1,7 @@
 <template>
   <form class="addForm" @submit.prevent="submit" @reset.prevent="reset">
+    <FormHead formTitle="نموذج استقطاب عملاء" />
+
     <BaseData :typies="typies" :form_event="form_event" />
 
     <hr />
@@ -32,6 +34,7 @@
 import { mapActions } from 'vuex'
 
 // components
+import FormHead from '~/components/baseForms/addWrkersForm/formHead'
 import Buttons from '~/components/baseForms/addWrkersForm/Buttons'
 import Nots from '~/components/attraction/InputForm/Nots'
 import Res2 from '~/components/attraction/InputForm/Res2'
@@ -44,6 +47,7 @@ import Msg from '~/components/attraction/InputForm/msg'
 export default {
   name: 'InputForm',
   components: {
+    FormHead,
     Buttons,
     Nots,
     Res2,

@@ -1,5 +1,5 @@
 <template>
-  <AddWrkersForm formTitle="نموزج استقطاب عمال">
+  <AddWrkersForm formTitle="نموذج استقطاب عمال">
     <template v-slot:default="slotProps">
       <Time :week="week" :form_event="slotProps.form_event" />
 

@@ -25,7 +25,7 @@
 
 <script>
 // vuex
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 /*****************************
  *   pure Js
@@ -65,10 +65,14 @@ watch.company_type = function () {
 }
 
 export default {
+  computed: mapGetters('user', ['user']),
   name: 'BaseData',
   props: ['typies', 'form_event'],
+  mounted() {
+    this.added_by = this.user.name
+  },
   data() {
-    return Object.assign({}, data)
+    return Object.assign({ added_by: '' }, data)
   },
   watch,
   methods: mapMutations('customers', Mutations),
