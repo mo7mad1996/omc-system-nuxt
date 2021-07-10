@@ -1,10 +1,19 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "admin",
+      "code": 0,
+      "permission": "chairman",
+      "img": null
+    }
+  ],
   "customers": [],
-  "workers": [],
   "VacationRequests": [],
   "Resignations": [],
   "Infractions": [],
   "Exitpermits": [],
-  "GetFrees": []
+  "GetFrees": [],
+  "Attendings": []
 }

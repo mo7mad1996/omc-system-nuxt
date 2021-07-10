@@ -1,5 +1,6 @@
 const data = {
   companyData: {
+    id: null,
     city: '',
     area: '',
     responsible_name: '',
@@ -20,6 +21,7 @@ const data = {
     init_date: '',
     cumpany_name: '',
     company_type: '',
+    added_by: '',
   },
   msg: { Active: false, Status: false, Text: '' },
 }
