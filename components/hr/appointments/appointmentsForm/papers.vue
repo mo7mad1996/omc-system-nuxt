@@ -159,7 +159,7 @@
       </div>
 
       <div class="input_field">
-        <label>نموذج 111</label>
+        <label>نموزج 111</label>
         <div class="radio-group">
           <input type="radio" id="form111ok" :value="true" v-model="form111" />
           <label for="form111ok" class="mark"></label>

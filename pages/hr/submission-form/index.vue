@@ -9,7 +9,7 @@ import HrAddedForm from '~/components/hr/addedForm/index'
 export default {
   head() {
     return {
-      title: 'نموذج تقديم ملئ بيانات',
+      title: 'نموزج تقديم ملئ بيانات',
     }
   },
   components: {

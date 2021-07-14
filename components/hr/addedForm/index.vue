@@ -1,5 +1,5 @@
 <template>
-  <AddWrkersForm formTitle="قسم نموذج تقديم">
+  <AddWrkersForm formTitle="قسم نموزج تقديم">
     <template v-slot:default="slotProps">
       <Personal :form_event="slotProps.form_event" />
       <hr />

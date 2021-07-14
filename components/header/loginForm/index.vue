@@ -157,9 +157,10 @@ form {
   position: fixed;
   padding: 10px;
   text-align: center;
-  bottom: -8vh;
+  bottom: -4em;
   left: 2vw;
   transition: 0.3s;
+  cursor: pointer;
 
   &.active {
     box-shadow: 0 0 14px #fe0000;

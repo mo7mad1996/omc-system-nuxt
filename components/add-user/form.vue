@@ -130,6 +130,7 @@ form {
   max-width: 370px;
   border-radius: 5px;
   overflow: hidden;
+  z-index: 0;
 
   .form-head {
     padding: 5px;

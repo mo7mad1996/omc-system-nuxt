@@ -33,13 +33,18 @@
         <label for="get_from">مصدر المكالمه</label>
         <input id="get_from" type="text" v-model="get_from" />
       </div>
+
+      <div class="input_field">
+        <label for="added_by">أضيف بواسطة</label>
+        <input id="added_by" type="text" v-model="added_by" />
+      </div>
     </div>
   </fieldset>
 </template>
 
 <script>
 // vuex
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 
 /*****************************
  *   pure Js
@@ -52,13 +57,14 @@ var data = {
     next_continue_date: '',
     final_call: '',
     get_from: '',
+    added_by: '',
   },
   watch = {
     form_event() {
       Object.assign(this, data)
     },
   },
-  Mutations = ['added_byMutation']
+  Mutations = []
 
 for (let d in data) {
   let mutationName = d + 'Mutation'
@@ -67,20 +73,13 @@ for (let d in data) {
   watch[d] = function () {
     this[mutationName](this[d])
   }
-  watch.added_by = function () {
-    this.added_byMutation(this.added_by)
-  }
 }
 
 export default {
-  computed: mapGetters('user', ['user']),
-  mounted() {
-    this.added_by = this.user.name
-  },
   name: 'BasicsData',
   props: ['resData', 'form_event'],
   data() {
-    return Object.assign({ added_by: '' }, data)
+    return Object.assign({}, data)
   },
   watch,
   methods: mapMutations('workers', Mutations),

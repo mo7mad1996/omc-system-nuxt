@@ -16,6 +16,29 @@
     </div>
 
     <div class="a">
+      قطاع النقل
+      <ul class="nested-menu">
+        <li><nuxt-link to="/">قسم تسجيل حركه النقل</nuxt-link></li>
+        <li><nuxt-link to="/">طلب سيارة لمأموريه</nuxt-link></li>
+        <li><nuxt-link to="/">طلب شراء سياره</nuxt-link></li>
+        <li><nuxt-link to="/">طلب بيع سياره</nuxt-link></li>
+        <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+      </ul>
+    </div>
+
+    <div class="a">
+      قطاع السكن
+
+      <ul class="nested-menu">
+        <li><nuxt-link to="/">بيان تسجيل الوحدات السكنيه</nuxt-link></li>
+        <li><nuxt-link to="/">بيان محتويات وحدة سكيه</nuxt-link></li>
+        <li><nuxt-link to="/">تسجيل افراد وحده سكنيه</nuxt-link></li>
+        <li><nuxt-link to="/">بيان طلب ايجار وحدة سكنيه</nuxt-link></li>
+        <li><nuxt-link to="/">استخراج التقارير</nuxt-link></li>
+      </ul>
+    </div>
+
+    <div class="a">
       قطاع الانشاءات
 
       <ul class="nested-menu">
@@ -64,45 +87,6 @@
         <li><nuxt-link to="/">تقديم طلب منحه</nuxt-link></li>
         <li><nuxt-link to="/">تقديم طلب اعتذار</nuxt-link></li>
         <li><nuxt-link to="/">تقديم طلب خدمه عامه</nuxt-link></li>
-      </ul>
-    </div>
-
-    <div class="a">
-      القطاع التصنيعي
-
-      <ul class="nested-menu">
-        <li><nuxt-link to="/"> بيان طلب تصنيع منتجات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان تسليم منتجات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب خامات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب مستلزمات انتاج</nuxt-link></li>
-        <li><nuxt-link to="/">بيان حالة منتج</nuxt-link></li>
-        <li><nuxt-link to="/">بيان طلب مشتريات</nuxt-link></li>
-        <li><nuxt-link to="/">بيان تسليم مشتريات</nuxt-link></li>
-        <li><nuxt-link to="/">تصريح خروج منتجات</nuxt-link></li>
-      </ul>
-    </div>
-    <div class="a">
-      القطاع الإعلامي
-
-      <ul class="nested-menu">
-        <li><nuxt-link to="/"> تسجيل مصادر صحفيه</nuxt-link></li>
-        <li><nuxt-link to="/"> تقرير عمل يومي</nuxt-link></li>
-        <li><nuxt-link to="/"> تقرير خبر للنشر</nuxt-link></li>
-        <li><nuxt-link to="/"> طلب اعلان</nuxt-link></li>
-      </ul>
-    </div>
-    <nuxt-link to="/">تقارير عامة</nuxt-link>
-
-    <div class="a">
-      قطاع التكنلوجيا الرقميه والبرمجه
-
-      <ul class="nested-menu">
-        <li><nuxt-link to="/">طلبات عملاء قاعدة بيانات</nuxt-link></li>
-        <li><nuxt-link to="/">طلبات عملاء ويب سايت</nuxt-link></li>
-        <li><nuxt-link to="/">تسجيل بيانات عملاء</nuxt-link></li>
-        <li><nuxt-link to="/">الدعم الفني</nuxt-link></li>
-        <li><nuxt-link to="/">تقديم مقترح او شكوى</nuxt-link></li>
-        <li><nuxt-link to="/">زيارات ميدانيه</nuxt-link></li>
       </ul>
     </div>
   </div>

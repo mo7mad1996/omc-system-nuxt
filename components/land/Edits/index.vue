@@ -87,11 +87,10 @@ export default {
   }
   figure {
     figcaption {
-      background: white;
-      box-shadow: inset 0 -4px 4px #e9a526;
+      background: #3d6dc7;
+      box-shadow: inset 0 -4px 4px #333;
       padding: 5px 10px;
       border-radius: 5px;
-      font-weight: bold;
     }
     img {
       height: 40px;

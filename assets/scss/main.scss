@@ -1,11 +1,10 @@
 form.addForm {
-  background-image: linear-gradient(#2f94d0, rgb(39, 39, 219));
+  background-color: #251843;
   color: white;
   margin: 20px 40px;
   border-radius: 10px;
   padding: 0 20px;
   box-shadow: 0px 10px 20px #999;
-  font-weight: bold;
 
   fieldset {
     border: 1px solid #a4a5a8;
@@ -45,7 +44,6 @@ form.addForm {
       select,
       input {
         border: 2px solid #bda3ff;
-        font-weight: bold;
         background-color: #f5f1ff;
       }
 
