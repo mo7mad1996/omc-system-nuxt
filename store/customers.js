@@ -1,26 +1,26 @@
 const data = {
   companyData: {
     id: null,
+    cumpany_name: '',
+    company_type: '',
+    init_date: '',
     city: '',
     area: '',
     responsible_name: '',
+    job: '',
     phone: '',
     email: '',
-    job: '',
     service_type: '',
+    res1_called: false,
+    res1_offer: false,
+    res1_vist: false,
+    next_continue_date: '',
     res2_sent: false,
     res2_vist: false,
     res2_reject: false,
     res2_accept: false,
-    next_continue_date: '',
-    res1_vist: false,
-    res1_offer: false,
-    res1_called: false,
-    LastCallDate: '',
     nots: '',
-    init_date: '',
-    cumpany_name: '',
-    company_type: '',
+    LastCallDate: '',
     added_by: '',
   },
   msg: { Active: false, Status: false, Text: '' },
@@ -28,7 +28,10 @@ const data = {
 
 const state = () => data
 
-const getters = { msg: (state) => state.msg }
+const getters = {
+  msg: (state) => state.msg,
+  companyData: (state) => state.companyData,
+}
 
 let mutations = {}
 

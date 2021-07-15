@@ -1,7 +1,9 @@
 <template>
   <footer class="container-fluid noPrint">
     <div class="row text-center">
-      <div class="col-3">مرحباً: جمعه ونيس</div>
+      <div class="col-3">
+        مرحباً: <span v-if="user">{{ user.name }}</span>
+      </div>
       <div class="col-3"></div>
       <div class="col-md-3 d-none d-md-block border-white"></div>
       <div class="mt-n1 col-6 col-md-3">
@@ -10,6 +12,16 @@
     </div>
   </footer>
 </template>
+
+<script>
+// vuex
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: mapGetters('user', ['user']),
+  name: 'FooterComponent',
+}
+</script>
 
 <style scoped>
 footer {

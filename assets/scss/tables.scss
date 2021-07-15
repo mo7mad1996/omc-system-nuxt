@@ -1,0 +1,23 @@
+.reports {
+  padding: 10px 0;
+
+  .report {
+    padding: 10px 0;
+
+    table {
+      thead {
+        text-align: center;
+        background-color: #251843;
+        color: white;
+      }
+
+      th,
+      td {
+        border: 2px solid #333;
+        padding: 5px 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@
 
       <div class="input_field">
         <label for="added_by">أضيف بواسطة</label>
-        <input id="added_by" type="text" v-model="added_by" />
+        <input disabled id="added_by" type="text" v-model="added_by" />
       </div>
     </div>
   </fieldset>
@@ -44,7 +44,7 @@
 
 <script>
 // vuex
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 /*****************************
  *   pure Js
@@ -82,6 +82,16 @@ export default {
     return Object.assign({}, data)
   },
   watch,
+  computed: mapGetters('user', ['user']),
   methods: mapMutations('workers', Mutations),
+  mounted() {
+    this.added_by = this.user.name
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+[disabled] {
+  background: #7d7d7d !important;
+}
+</style>

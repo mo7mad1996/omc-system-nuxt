@@ -14,6 +14,32 @@
   </div>
 </template>
 
+<script>
+// vuex
+import { mapMutations } from 'vuex'
+
+// components
+import HeaderComponent from '@/components/header/index'
+import FooterComponent from '@/components/footer/index'
+import Chat from '@/components/chat/index'
+
+export default {
+  methods: mapMutations('user', ['setUser']),
+
+  beforeMount() {
+    this.setUser(JSON.parse(sessionStorage.getItem('user')) || {})
+  },
+  components: {
+    HeaderComponent,
+    FooterComponent,
+    Chat,
+  },
+  created() {
+    console.log('This system built by Mohammed Ibrahem')
+  },
+}
+</script>
+
 <style scoped>
 .BG {
   background-image: url('/baseBG.png');
@@ -28,21 +54,3 @@
   min-height: 100vh;
 }
 </style>
-
-<script>
-// components
-import HeaderComponent from '@/components/header/index'
-import FooterComponent from '@/components/footer/index'
-import Chat from '@/components/chat/index'
-
-export default {
-  components: {
-    HeaderComponent,
-    FooterComponent,
-    Chat,
-  },
-  created() {
-    console.log('This system built by Mohammed Ibrahem')
-  },
-}
-</script>

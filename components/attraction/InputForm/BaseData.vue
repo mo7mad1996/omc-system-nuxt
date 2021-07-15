@@ -25,7 +25,7 @@
 
 <script>
 // vuex
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 /*****************************
  *   pure Js
@@ -42,7 +42,7 @@ var data = {
       Object.assign(this, data)
     },
   },
-  Mutations = []
+  Mutations = ['added_byMutation']
 
 for (let d in data) {
   let mutationName = d + 'Mutation'
@@ -50,6 +50,10 @@ for (let d in data) {
 
   watch[d] = function () {
     this[mutationName](this[d])
+  }
+
+  watch.added_by = function () {
+    this.added_byMutation(this.added_by)
   }
 }
 
@@ -65,8 +69,13 @@ watch.company_type = function () {
 }
 
 export default {
+  computed: mapGetters('user', ['user']),
   name: 'BaseData',
   props: ['typies', 'form_event'],
+  mounted() {
+    this.added_by = this.user.name
+    this.added_byMutation(this.added_by)
+  },
   data() {
     return Object.assign({}, data)
   },

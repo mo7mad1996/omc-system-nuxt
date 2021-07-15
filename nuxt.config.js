@@ -1,9 +1,12 @@
+let dev = process.env.NODE_ENV !== 'production'
+
 export default {
   // server
   server: {
     port: 1996,
     host: '0.0.0.0',
   },
+  dev,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -24,6 +27,7 @@ export default {
     '~/assets/css/bootstrap.min.css',
     '~/assets/css/reset.css',
     '~/assets/scss/main.scss',
+    '~/assets/scss/tables.scss',
     '~/assets/css/print.css',
   ],
 
@@ -46,9 +50,8 @@ export default {
   axios: {
     // on localhost
     // json server host [  my ip + json-server::port  ]
-    baseURL: 'http://localhost:3000/',
-    // online
-    // baseURL: 'https://my-json-server.typicode.com/mo7mad1996/omc-system-nuxt',
+
+    baseURL: dev ? 'http://localhost:3000/' : 'http://192.168.1.33:3000/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

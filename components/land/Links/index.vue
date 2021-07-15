@@ -2,12 +2,12 @@
   <div class="col land-page">
     <div class="row links">
       <First />
-      <!-- 
-        -->
+
       <Second />
 
-      <Fourth />
       <Third />
+
+      <Fourth />
     </div>
   </div>
 </template>
