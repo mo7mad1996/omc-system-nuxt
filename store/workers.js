@@ -117,7 +117,7 @@ for (let i in start.personData) {
 }
 
 const actions = {
-  addWorkers({ commit, state }) {
+  addWorkers({ commit, state }, form) {
     this.$axios
       .$post('workers', state.personData)
       .then(() => {
@@ -125,6 +125,7 @@ const actions = {
         commit('setMsgActive', true)
         commit('setMsgText', 'تم الاضافه')
         commit('setMsgStatus', true)
+        form.reset()
       })
       .catch((err) => {
         commit('setMsgActive', true)

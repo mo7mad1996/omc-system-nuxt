@@ -36,7 +36,7 @@
 
       <div class="input_field">
         <label for="added_by">أضيف بواسطة</label>
-        <input disabled id="added_by" type="text" v-model="added_by" />
+        <input id="added_by" type="text" required v-model="added_by" />
       </div>
     </div>
   </fieldset>
@@ -62,6 +62,7 @@ var data = {
   watch = {
     form_event() {
       Object.assign(this, data)
+      this.added_by = JSON.parse(sessionStorage.getItem('user')).name
     },
   },
   Mutations = []

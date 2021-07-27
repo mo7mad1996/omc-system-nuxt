@@ -35,6 +35,7 @@ export default {
       { title: 'المهنه او الحرفه', code: 'job_title' },
       { title: 'الرقم القومي', code: 'id_card' },
       { title: 'النتيجه', code: 'result' },
+      { title: 'مصدر المكالمه', code: 'get_from' },
       { title: 'ملاحظات', code: 'nots' },
       { title: 'تاريخ المتابعه 1', code: 'continue1_date' },
       { title: 'نتيجه متابعه 1', code: 'continue1' },
@@ -49,10 +50,10 @@ export default {
   }),
   methods: {
     istrue(d) {
-      if (d == 'true') {
+      if (d === true) {
         return '<span class=done ></span>'
       }
-      if (d == 'false') {
+      if (d === 'false') {
         return ''
       }
       return d

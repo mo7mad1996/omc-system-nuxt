@@ -1,6 +1,5 @@
 <template>
   <div class="reports">
-    {{ user.permission }}
     <CustomerReports
       :user="user"
       v-if="

@@ -54,6 +54,7 @@ for (let b in data.msg) {
 // to reset the data
 mutations.reset = function (state) {
   state.companyData = data.companyData
+  state.companyData.added_by = JSON.parse(sessionStorage.getItem('user')).name
 }
 
 const actions = {

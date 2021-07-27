@@ -1,5 +1,10 @@
 <template>
-  <form class="addForm" @submit.prevent="submit" @reset.prevent="reset">
+  <form
+    class="addForm"
+    @submit.prevent="submit"
+    @reset.prevent="reset"
+    ref="form"
+  >
     <FormHead :formTitle="formTitle" />
 
     <hr />
@@ -29,10 +34,10 @@ export default {
   methods: {
     ...mapActions('workers', ['addWorkers']),
     submit() {
-      this.addWorkers()
-      this.reset()
+      this.addWorkers(this.$refs.form)
     },
     reset() {
+      console.log('reset')
       this.form_event = !this.form_event // to reset the form values
     },
   },

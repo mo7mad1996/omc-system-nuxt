@@ -120,10 +120,10 @@ export default {
   }),
   methods: {
     istrue(d) {
-      if (d == true) {
+      if (d === true) {
         return '<b class=done > </b>'
       }
-      if (d == false) {
+      if (d === false) {
         return ''
       }
       return d
