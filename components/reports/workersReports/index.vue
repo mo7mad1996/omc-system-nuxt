@@ -7,7 +7,7 @@
         <th v-for="d in myData" :key="d.code" v-text="d.title" />
       </thead>
       <tbody>
-        <tr v-for="(a, n) in workers" :key="n">
+        <tr v-for="(a, n) in workers" :key="n" @click="edit(a.id)">
           <td>{{ n + 1 }}</td>
           <td v-for="s in myData" :key="n + s.title" :title="s.title">
             {{ istrue(a[s.code]) }}
@@ -15,10 +15,15 @@
         </tr>
       </tbody>
     </table>
+
+    <EditForm :id="id" @close="openEdit = false" v-if="openEdit" />
   </div>
 </template>
 
 <script>
+// components
+import EditForm from '~/components/reports/workersReports/editForm/index'
+
 export default {
   name: 'WorkersReports',
   props: ['user'],
@@ -29,7 +34,7 @@ export default {
       { title: 'تاريخ التسجيل', code: 'registr_date' },
       { title: 'اسم العامل', code: 'person_name' },
       { title: 'المؤهل', code: 'qualification' },
-      { title: 'تلفون', code: 'phone' },
+      { title: 'تليفون', code: 'phone' },
       { title: 'محافظه', code: 'city' },
       { title: 'السن', code: 'age' },
       { title: 'المهنه او الحرفه', code: 'job_title' },
@@ -47,6 +52,8 @@ export default {
       { title: 'أضيف بواسطة', code: 'added_by' },
     ],
     workers: [],
+    openEdit: false,
+    id: null,
   }),
   methods: {
     istrue(d) {
@@ -57,6 +64,12 @@ export default {
         return ''
       }
       return d
+    },
+
+    // edit methods
+    edit(id) {
+      this.id = id
+      this.openEdit = true
     },
   },
   beforeMount() {
@@ -76,5 +89,6 @@ export default {
         break
     }
   },
+  components: { EditForm },
 }
 </script>

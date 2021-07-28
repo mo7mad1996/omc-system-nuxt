@@ -23,7 +23,7 @@
       <Continue3 :form_event="slotProps.form_event" :resData="resData" />
 
       <hr />
-      <Place :week="week" />
+      <Place />
       <!-- added By -->
       <!-- Get Url -->
     </template>

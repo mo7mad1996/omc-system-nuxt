@@ -6,6 +6,8 @@
       <form @submit.prevent="aaa(name, a.id)">
         <input v-model="name" /><input type="submit" value=" تعديل" />
       </form>
+
+      <button @click.prevent="dwl(a.id)">حذف</button>
     </div>
   </div>
 </template>
@@ -20,7 +22,7 @@ export default {
   },
   mounted() {
     this.$axios
-      .$get('http://192.168.1.33:3000/workers?added_by=')
+      .$get('http://192.168.1.33:3000/workers?added_by=admin')
       .then((res) => (this.d = res))
   },
   methods: {
@@ -29,6 +31,9 @@ export default {
       this.$axios.$patch('http://192.168.1.33:3000/workers/' + id, {
         added_by: name,
       })
+    },
+    dwl(id) {
+      this.$axios.$delete('http://192.168.1.33:3000/workers/' + id)
     },
   },
 }

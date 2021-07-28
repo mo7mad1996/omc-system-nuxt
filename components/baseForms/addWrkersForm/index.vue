@@ -37,7 +37,6 @@ export default {
       this.addWorkers(this.$refs.form)
     },
     reset() {
-      console.log('reset')
       this.form_event = !this.form_event // to reset the form values
     },
   },

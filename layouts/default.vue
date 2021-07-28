@@ -4,7 +4,9 @@
       <HeaderComponent />
 
       <div class="BG">
-        <Nuxt />
+        <client-only>
+          <Nuxt />
+        </client-only>
 
         <Chat />
       </div>

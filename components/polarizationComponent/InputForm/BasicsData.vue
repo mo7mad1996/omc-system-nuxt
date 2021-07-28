@@ -63,6 +63,7 @@ var data = {
     form_event() {
       Object.assign(this, data)
       this.added_by = JSON.parse(sessionStorage.getItem('user')).name
+      this.added_byMutation(this.added_by)
     },
   },
   Mutations = []
