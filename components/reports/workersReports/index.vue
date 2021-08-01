@@ -9,7 +9,19 @@
         <th v-for="d in myData" :key="d.code" v-text="d.title" />
       </thead>
       <tbody>
-        <tr v-for="(a, n) in toView" :key="n" @click="edit(a.id, n)">
+        <tr
+          v-for="(a, n) in workers.filter((obj) => {
+            if (
+              Object.values(obj).filter(
+                (el) => el.toString().search(search) > -1
+              ).length
+            ) {
+              return obj
+            }
+          })"
+          :key="n"
+          @click="edit(a.id, n)"
+        >
           <td>{{ n + 1 }}</td>
           <td v-for="s in myData" :key="n + s.title" :title="s.title">
             {{ istrue(a[s.code]) }}
@@ -21,7 +33,7 @@
     <EditForm
       :id="id"
       :n="n"
-      @done="done(n, $event)"
+      @done="done($event)"
       @close="openEdit = false"
       v-if="openEdit"
     />
@@ -83,8 +95,13 @@ export default {
       this.openEdit = true
     },
 
-    done(n, $event) {
-      this.workers[n] = $event
+    done($event) {
+      // this.workers[n] = $event
+      this.workers.forEach((el, n) => {
+        if (el.id === $event.id) {
+          this.workers[n] = $event
+        }
+      })
     },
   },
 
@@ -104,20 +121,6 @@ export default {
           .then((res) => (this.workers = res))
         break
     }
-  },
-
-  computed: {
-    toView() {
-      return this.workers.filter((obj) => {
-        if (
-          Object.values(obj).filter(
-            (el) => el.toString().search(this.search) > -1
-          ).length
-        ) {
-          return obj
-        }
-      })
-    },
   },
 
   components: { EditForm },
