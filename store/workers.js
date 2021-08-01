@@ -7,7 +7,7 @@ const start = {
     id: null,
 
     person_name: '', // اسم الشخص
-    age: 21, // سن الشخص
+    age: '', // سن الشخص
     phone: '', // تلفون الشخص
     id_card: '', // الرقم القومي
     city: '', // المحافظه

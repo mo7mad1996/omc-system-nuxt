@@ -2,11 +2,15 @@
   <div class="report">
     <h2 class="text-center">تقرير عمال</h2>
 
-    <input v-model="search" placeholder="بحث" />
+    <div class="mb-3 container">
+      <label class="form-label">بحث</label>
+      <input v-model="search" placeholder="بحث ..." class="form-control" />
+    </div>
     <table>
       <thead>
         <th>م</th>
         <th v-for="d in myData" :key="d.code" v-text="d.title" />
+        <th>حذف</th>
       </thead>
       <tbody>
         <tr
@@ -25,6 +29,15 @@
           <td>{{ n + 1 }}</td>
           <td v-for="s in myData" :key="n + s.title" :title="s.title">
             {{ istrue(a[s.code]) }}
+          </td>
+          <td>
+            <button
+              type="button"
+              @click.stop="del(a.id)"
+              class="btn btn-danger"
+            >
+              حذف
+            </button>
           </td>
         </tr>
       </tbody>
@@ -101,6 +114,16 @@ export default {
         if (el.id === $event.id) {
           this.workers[n] = $event
         }
+      })
+    },
+
+    del(id) {
+      this.$axios.$delete('workers/' + id).then(() => {
+        this.workers.forEach((el, n) => {
+          if (el.id === id) {
+            this.workers.splice(n, 1)
+          }
+        })
       })
     },
   },

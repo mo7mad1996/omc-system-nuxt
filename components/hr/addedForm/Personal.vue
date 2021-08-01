@@ -65,7 +65,7 @@ import { mapMutations } from 'vuex'
 var data = {
     person_name: '',
     home: '',
-    age: 21,
+    age: '',
     somke: false,
     army: '',
     drivingLicense: '',

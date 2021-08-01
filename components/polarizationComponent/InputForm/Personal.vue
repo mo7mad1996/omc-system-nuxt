@@ -65,7 +65,7 @@ var data = {
     qualification: '',
     phone: '',
     city: '',
-    age: 21,
+    age: '',
     job_title: '',
     id_card: '',
   },
