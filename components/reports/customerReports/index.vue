@@ -7,7 +7,7 @@
         <th v-for="d in myData" :key="d.code" v-text="d.title" />
       </thead>
       <tbody>
-        <tr v-for="(a, n) in customers" :key="n">
+        <tr v-for="(a, n) in customers" :key="n" @click="edit(a.id, n)">
           <td>{{ n + 1 }}</td>
           <td
             v-for="s in myData"
@@ -18,10 +18,21 @@
         </tr>
       </tbody>
     </table>
+
+    <EditCustomerForm
+      :id="id"
+      :n="n"
+      @done="done(n)"
+      @close="openEdit = false"
+      v-if="openEdit"
+    />
   </div>
 </template>
 
 <script>
+// components
+import EditCustomerForm from '~/components/reports/customerReports/editForm/index'
+
 export default {
   name: 'CustomerReports',
   props: ['user'],
@@ -117,6 +128,10 @@ export default {
       },
     ],
     customers: [],
+
+    openEdit: false,
+    id: null,
+    n: null,
   }),
   methods: {
     istrue(d) {
@@ -127,6 +142,12 @@ export default {
         return ''
       }
       return d
+    },
+
+    edit(id, n) {
+      this.id = id
+      this.n = n
+      this.openEdit = true
     },
   },
   beforeMount() {
@@ -146,6 +167,7 @@ export default {
         break
     }
   },
+  components: { EditCustomerForm },
 }
 </script>
 

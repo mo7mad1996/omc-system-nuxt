@@ -1,6 +1,11 @@
 @media print {
   .noPrint {
-    display: none;
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  .addForm {
+    width: 100%;
   }
 
   .BG {
@@ -15,6 +20,7 @@
     color: #000;
   }
 
+  textarea,
   select,
   input {
     border-color: transparent !important;

@@ -22,18 +22,18 @@ export default {
   },
   mounted() {
     this.$axios
-      .$get('http://192.168.1.33:3000/workers?added_by=admin')
+      .$get('http://192.168.1.33:3000/customers?added_by=')
       .then((res) => (this.d = res))
   },
   methods: {
     aaa(name, id) {
       console.log(this.$axios, name)
-      this.$axios.$patch('http://192.168.1.33:3000/workers/' + id, {
+      this.$axios.$patch('http://192.168.1.33:3000/customers/' + id, {
         added_by: name,
       })
     },
     dwl(id) {
-      this.$axios.$delete('http://192.168.1.33:3000/workers/' + id)
+      this.$axios.$delete('http://192.168.1.33:3000/customers/' + id)
     },
   },
 }

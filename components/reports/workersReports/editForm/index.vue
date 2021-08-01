@@ -32,7 +32,7 @@
             <input
               id="person_name"
               type="text"
-              v-model="personData.preson_name"
+              v-model="personData.person_name"
             />
           </div>
           <div class="input_field">
@@ -255,17 +255,18 @@ export default {
     edit() {
       this.$axios
         .$patch('workers/' + this.id, this.personData)
-        .then(() => {
+        .then((res) => {
           this.msg = {
             Active: true,
             Status: true,
             Text: 'تم التعديل بنجاح',
           }
           this.close()
+          this.$emit('done', res)
         })
         .catch(() => {
           this.msg = {
-            Active: فقعث,
+            Active: true,
             Status: false,
             Text: 'مشكله في الاتصال',
           }

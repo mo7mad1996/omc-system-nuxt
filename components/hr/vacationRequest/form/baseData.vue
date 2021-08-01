@@ -14,7 +14,7 @@
       </div>
 
       <div class="input_field">
-        <label for="factory">المصنع</label>
+        <label for="factory">المصنع | الفرع</label>
         <input id="factory" type="text" v-model="factory" />
       </div>
 

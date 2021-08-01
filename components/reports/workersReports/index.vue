@@ -1,13 +1,15 @@
 <template>
   <div class="report">
     <h2 class="text-center">تقرير عمال</h2>
+
+    <input v-model="search" placeholder="بحث" />
     <table>
       <thead>
         <th>م</th>
         <th v-for="d in myData" :key="d.code" v-text="d.title" />
       </thead>
       <tbody>
-        <tr v-for="(a, n) in workers" :key="n" @click="edit(a.id)">
+        <tr v-for="(a, n) in toView" :key="n" @click="edit(a.id, n)">
           <td>{{ n + 1 }}</td>
           <td v-for="s in myData" :key="n + s.title" :title="s.title">
             {{ istrue(a[s.code]) }}
@@ -16,7 +18,13 @@
       </tbody>
     </table>
 
-    <EditForm :id="id" @close="openEdit = false" v-if="openEdit" />
+    <EditForm
+      :id="id"
+      :n="n"
+      @done="done(n, $event)"
+      @close="openEdit = false"
+      v-if="openEdit"
+    />
   </div>
 </template>
 
@@ -54,24 +62,32 @@ export default {
     workers: [],
     openEdit: false,
     id: null,
+    n: null,
+    search: '',
   }),
   methods: {
     istrue(d) {
       if (d === true) {
-        return '<span class=done ></span>'
+        return '<span class=done />'
       }
-      if (d === 'false') {
+      if (d === false) {
         return ''
       }
       return d
     },
 
     // edit methods
-    edit(id) {
+    edit(id, n) {
       this.id = id
+      this.n = n
       this.openEdit = true
     },
+
+    done(n, $event) {
+      this.workers[n] = $event
+    },
   },
+
   beforeMount() {
     switch (this.user.permission) {
       case 'chairman':
@@ -89,6 +105,21 @@ export default {
         break
     }
   },
+
+  computed: {
+    toView() {
+      return this.workers.filter((obj) => {
+        if (
+          Object.values(obj).filter(
+            (el) => el.toString().search(this.search) > -1
+          ).length
+        ) {
+          return obj
+        }
+      })
+    },
+  },
+
   components: { EditForm },
 }
 </script>

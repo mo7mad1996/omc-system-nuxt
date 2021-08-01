@@ -3,7 +3,7 @@
     class="msg"
     :class="{ active: msg.Active, error: !msg.Status, success: msg.Status }"
     v-text="msg.Text"
-    @click="close"
+    @click.stop="close"
     ref="msg"
   />
 </template>
@@ -32,6 +32,7 @@ export default {
   box-shadow: 4px 8px 16px #333;
   user-select: none;
   cursor: pointer;
+  color: white;
 
   &.active {
     bottom: 2em;
