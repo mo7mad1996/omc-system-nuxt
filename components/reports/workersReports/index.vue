@@ -14,15 +14,17 @@
       </thead>
       <tbody>
         <tr
-          v-for="(a, n) in workers.filter((obj) => {
-            if (
-              Object.values(obj).filter(
-                (el) => el.toString().search(search) > -1
-              ).length
-            ) {
-              return obj
-            }
-          })"
+          v-for="(a, n) in workers
+            .filter((obj) => {
+              if (
+                Object.values(obj).filter(
+                  (el) => el.toString().search(search) > -1
+                ).length
+              ) {
+                return obj
+              }
+            })
+            .splice(100 * (pageNum - 1), 100)"
           :key="n"
           @click="edit(a.id, n)"
         >
@@ -42,6 +44,27 @@
         </tr>
       </tbody>
     </table>
+
+    <nav
+      v-if="workers.length > 100"
+      class="d-flex justify-content-center mt-3 gap-2"
+    >
+      <button
+        @click="pageNum--"
+        :disabled="pageNum < 2"
+        class="btn btn-outline-secondary"
+      >
+        &lt;
+      </button>
+      <input
+        type="number"
+        v-model="pageNum"
+        min="1"
+        class="form-input"
+        width="20"
+      />
+      <button @click="pageNum++" class="btn btn-outline-secondary">&gt;</button>
+    </nav>
 
     <EditForm
       :id="id"
@@ -89,6 +112,7 @@ export default {
     id: null,
     n: null,
     search: '',
+    pageNum: 1,
   }),
   methods: {
     istrue(d) {
@@ -147,5 +171,30 @@ export default {
   },
 
   components: { EditForm },
+  mounted() {},
 }
 </script>
+
+<style lang="scss" scoped>
+nav {
+  position: relative;
+
+  font-weight: bold;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -0.5em;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-image: linear-gradient(
+      90deg,
+      transparent 30%,
+      #bb1716 50%,
+      transparent 70%
+    );
+  }
+}
+</style>

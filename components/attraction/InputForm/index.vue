@@ -6,7 +6,11 @@
     <BaseData :typies="typies" :form_event="form_event" />
 
     <hr />
-    <Location :zones="zones" :cities="cities" :form_event="form_event" />
+    <Location
+      :zones="zones"
+      :cities="company_cities"
+      :form_event="form_event"
+    />
 
     <hr />
     <Responsible :service="service" :jobs="jobs" :form_event="form_event" />
@@ -32,7 +36,7 @@
 
 <script>
 // vuex
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 // components
 import FormHead from '~/components/baseForms/addWrkersForm/formHead'
@@ -61,64 +65,6 @@ export default {
   data() {
     return {
       form_event: false, // to reset the form when Action
-      typies: [
-        'بلاستيك',
-        'دوائي',
-        'طباعة و تغليف',
-        'غذائي',
-        'كهرباء و الكترونيات',
-        'مخازن و لوجيستيات',
-        'مزارع',
-        'معدنية ومواد بناء',
-        'ورقي و كرتون',
-        'سيارات',
-        'اخرى',
-      ],
-      zones: [
-        'الاولى',
-        'الثانية',
-        'الثالثة',
-        'الرابعة',
-        'الخامسة',
-        'السادسة',
-        'مجمع',
-        'اخرى',
-      ],
-      cities: [
-        'الاسكندرية',
-        'الاسماعيلية',
-        'السادات',
-        'السادس من أكتوبر',
-        'العاشر',
-        'العبور',
-        'العين السخنة',
-        'الفيوم',
-        'أبورواش',
-        'بني سويف',
-        'اخرى',
-      ],
-      service: [
-        'يونيفورم',
-        'تشغيل عمال',
-        'مستلزمات طبية',
-        'إنشاءات صناعية',
-        'تعبئة وتغليف',
-        'الاستيراد وتصدير',
-        'اخرى',
-      ],
-      jobs: [
-        'HR',
-        'رئيس مجلس إدارة',
-        'مدير انتاج',
-        'مدير عام',
-        'مدير تنفيذي',
-        'مدير إداري',
-        'مدير جودة',
-        'مدير مالي',
-        'مدير مبيعات',
-        'مدير مشتريات',
-        'اخرى',
-      ],
     }
   },
   methods: {
@@ -132,5 +78,6 @@ export default {
       this.form_event = !this.form_event // to reset the form values
     },
   },
+  computed: mapGetters(['company_cities']),
 }
 </script>

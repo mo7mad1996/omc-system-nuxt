@@ -282,7 +282,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
 .editForm {
   overflow: auto;
   position: fixed;

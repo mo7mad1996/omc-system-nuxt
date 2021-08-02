@@ -22,7 +22,7 @@
     <EditCustomerForm
       :id="id"
       :n="n"
-      @done="done(n)"
+      @done="done($event)"
       @close="openEdit = false"
       v-if="openEdit"
     />
@@ -44,7 +44,7 @@ export default {
       },
       {
         title: 'اسم العميل',
-        code: 'cumpany_name',
+        code: 'company_name',
       },
       {
         title: 'نوع القطاع الصناعي',
@@ -148,6 +148,18 @@ export default {
       this.id = id
       this.n = n
       this.openEdit = true
+    },
+
+    done($event) {
+      // this.workers[n] = $event
+
+      console.log($event.id)
+      this.customers.forEach((el, n) => {
+        console.log(el.id)
+        if (el.id === $event.id) {
+          this.customers[n] = $event
+        }
+      })
     },
   },
   beforeMount() {
