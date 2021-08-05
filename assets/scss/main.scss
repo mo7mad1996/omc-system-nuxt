@@ -45,6 +45,10 @@ form.addForm {
       input {
         border: 2px solid #bda3ff;
         background-color: #f5f1ff;
+
+        &:focus {
+          outline: 3px solid #4ed68b;
+        }
       }
 
       select,

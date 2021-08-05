@@ -57,10 +57,10 @@
         &lt;
       </button>
       <input
+        class="text-center"
         type="number"
         v-model="pageNum"
         min="1"
-        class="form-input"
         width="20"
       />
       <button @click="pageNum++" class="btn btn-outline-secondary">&gt;</button>
@@ -142,13 +142,15 @@ export default {
     },
 
     del(id) {
-      this.$axios.$delete('workers/' + id).then(() => {
-        this.workers.forEach((el, n) => {
-          if (el.id === id) {
-            this.workers.splice(n, 1)
-          }
+      if (confirm('هل انت متأكد من حدف العامل؟')) {
+        this.$axios.$delete('workers/' + id).then(() => {
+          this.workers.forEach((el, n) => {
+            if (el.id === id) {
+              this.workers.splice(n, 1)
+            }
+          })
         })
-      })
+      }
     },
   },
 
@@ -180,6 +182,7 @@ nav {
   position: relative;
 
   font-weight: bold;
+  text-align: center;
 
   &::before {
     content: '';
@@ -189,12 +192,18 @@ nav {
     display: block;
     height: 2px;
     width: 100%;
+    text-align: center;
     background-image: linear-gradient(
       90deg,
-      transparent 30%,
-      #bb1716 50%,
-      transparent 70%
+      red,
+      gold,
+      aqua,
+      brown,
+      blue,
+      green,
+      red
     );
+    animation: anm 3s linear infinite;
   }
 }
 </style>

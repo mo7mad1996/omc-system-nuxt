@@ -1,7 +1,7 @@
 <template>
   <AddWrkersForm formTitle="نموزج استقطاب عمال">
     <template v-slot:default="slotProps">
-      <Time :week="week" :form_event="slotProps.form_event" :l="slotProps" />
+      <Time :week="week" :form_event="slotProps.form_event" />
 
       <hr />
       <Personal
@@ -23,7 +23,7 @@
       <Continue3 :form_event="slotProps.form_event" :resData="resData" />
 
       <hr />
-      <Place />
+      <Place :form_event="slotProps.form_event" />
       <!-- added By -->
       <!-- Get Url -->
     </template>

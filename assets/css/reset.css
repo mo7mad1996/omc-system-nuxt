@@ -28,3 +28,12 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+@keyframes anm {
+  from {
+    background-position-x: 0;
+  }
+  from {
+    background-position-x: 100vw;
+  }
+}
