@@ -12,11 +12,11 @@
             <input id="init_date" type="date" v-model="company.init_date" />
           </div>
           <div class="input_field">
-            <label for="company_name">اسم العميل</label>
+            <label for="cumpany_name">اسم العميل</label>
             <input
-              id="company_name"
+              id="cumpany_name"
               type="text"
-              v-model="company.company_name"
+              v-model="company.cumpany_name"
             />
           </div>
           <div class="input_field">

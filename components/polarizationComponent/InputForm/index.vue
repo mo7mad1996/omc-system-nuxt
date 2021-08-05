@@ -1,7 +1,7 @@
 <template>
   <AddWrkersForm formTitle="نموزج استقطاب عمال">
     <template v-slot:default="slotProps">
-      <Time :week="week" :form_event="slotProps.form_event" />
+      <Time :week="week" :form_event="slotProps.form_event" :l="slotProps" />
 
       <hr />
       <Personal

@@ -44,7 +44,7 @@ export default {
       },
       {
         title: 'اسم العميل',
-        code: 'company_name',
+        code: 'cumpany_name',
       },
       {
         title: 'نوع القطاع الصناعي',

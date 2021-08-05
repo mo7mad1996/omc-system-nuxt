@@ -78,6 +78,12 @@ export default {
       this.form_event = !this.form_event // to reset the form values
     },
   },
-  computed: mapGetters(['company_cities']),
+  computed: mapGetters([
+    'company_cities',
+    'service',
+    'jobs',
+    'zones',
+    'typies',
+  ]),
 }
 </script>
