@@ -173,7 +173,6 @@ export default {
   },
 
   components: { EditForm },
-  mounted() {},
 }
 </script>
 
