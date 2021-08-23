@@ -12,11 +12,14 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
     "core-js": "^3.9.1",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^9.1.0",
     "json-server": "^0.16.3",
     "node-sass": "^6.0.0",
     "nuxt": "^2.2.0",
     "sass-loader": "^10.1.1",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

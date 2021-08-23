@@ -11,10 +11,14 @@ export default {
       let fr = new FileReader()
       fr.onload = () => {
         console.log(fr)
+        // xlsx.read(fs.readFileSync('/xlsx.xlsx'))
       }
 
       fr.readAsDataURL(this.file)
     },
+  },
+  mounted() {
+    console.log(fse)
   },
 }
 </script>
