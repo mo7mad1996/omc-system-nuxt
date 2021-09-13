@@ -81,6 +81,7 @@ export default {
         { title: 'موظف استقطاب عملاء', name: 'attraction_employee' },
         { title: 'مدير موارد بشريه', name: 'hr_manager' },
         { title: 'مساعد مدير موارد بشريه', name: 'hr_employee' },
+        { title: 'مدير مالي', name: 'Financial_Manager' },
       ],
       loading: false,
       msg: {

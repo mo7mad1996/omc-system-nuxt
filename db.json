@@ -7,6 +7,14 @@
       "code": 0,
       "permission": "chairman",
       "img": null
+    },
+    {
+      "id": 2,
+      "name": "a",
+      "password": "a",
+      "code": "",
+      "permission": "Financial_Manager",
+      "img": null
     }
   ],
   "customers": [
