@@ -24,7 +24,8 @@
                 return obj
               }
             })
-            .splice(100 * (pageNum - 1), 100)"
+            .reverse()
+            .splice(100 * (pageNum - 1), 50)"
           :key="n"
           @click="edit(a.id, n)"
         >
@@ -49,21 +50,17 @@
       v-if="workers.length > 100"
       class="d-flex justify-content-center mt-3 gap-2"
     >
-      <button
-        @click="pageNum--"
-        :disabled="pageNum < 2"
-        class="btn btn-outline-secondary"
-      >
-        &lt;
-      </button>
-      <input
-        class="text-center"
-        type="number"
-        v-model="pageNum"
-        min="1"
-        width="20"
-      />
-      <button @click="pageNum++" class="btn btn-outline-secondary">&gt;</button>
+      <div class="nav">
+        <button @click="pageNum--" :disabled="pageNum < 2" class="minus" />
+        <input
+          class="text-center"
+          type="number"
+          v-model="pageNum"
+          min="1"
+          width="20"
+        />
+        <button @click="pageNum++" class="plus" />
+      </div>
     </nav>
 
     <EditForm
@@ -203,6 +200,71 @@ nav {
       red
     );
     animation: anm 3s linear infinite;
+  }
+
+  .nav {
+    padding: 3px;
+    border-radius: 7px;
+    box-shadow: 2px 4px 8px rgb(116, 116, 116);
+    background: #dfebf9;
+    display: flex;
+    gap: 4px;
+
+    button,
+    input {
+      height: 30px;
+      width: 30px;
+      padding: 4px;
+      background: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: none;
+    }
+    input {
+      width: 70px;
+      background: white;
+      appearance: none;
+      border: 2px solid #bfdbfe;
+    }
+
+    button {
+      position: relative;
+
+      &:focus,
+      &:hover {
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      &::after,
+      &::before {
+        content: '';
+        width: 15px;
+        height: 3px;
+        background: #215f23;
+        display: block;
+        position: absolute;
+        transform-origin: center center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 4px;
+      }
+
+      &.plus::before {
+        height: 15px;
+        width: 3px;
+      }
+
+      &:disabled {
+        cursor: no-drop;
+
+        &::after,
+        &::before {
+          background: #bbb;
+        }
+      }
+    }
   }
 }
 </style>

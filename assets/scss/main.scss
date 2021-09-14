@@ -47,7 +47,7 @@ form.addForm {
         background-color: #f5f1ff;
 
         &:focus {
-          outline: 3px solid #4ed68b;
+          outline: 3px solid #d64e4e;
         }
       }
 
@@ -66,6 +66,7 @@ form.addForm {
         position: relative;
         margin: 20px;
 
+        input[type='radio'],
         input[type='checkbox'] {
           visibility: hidden;
 
